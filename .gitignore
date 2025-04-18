@@ -1,0 +1,70 @@
+# === Unity 기본 제외 폴더 ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# === Unity UPM 관련 캐시 ===
+Packages/packages-lock.json
+
+# === Unity Collaborate ===
+.collabignore
+
+# === Unity Cloud Build ===
+.cloud/
+
+# === Shader 캐시 (선택적) ===
+*.shadercache
+
+# === Addressable (필요 시 사용) ===
+#Assets/AddressableAssetsData/*/*.bin
+
+# === OS 별 제외 파일 ===
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+desktop.ini
+
+# === IDE / 에디터 관련 ===
+.vscode/
+.idea/
+
+# === Visual Studio 관련 ===
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.unityproj
+*.booproj
+*.tmp
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+*.dbmdl
+*.db
+
+# === 기타 임시/백업/숨김 파일 ===
+*.bak
+*.old
+*.orig
+*.swp
+
+# === 빌드 결과물 ===
+*.apk
+*.aab
+*.app
+*.unitypackage
+
+# === JetBrains Rider (선택 시) ===
+*.sln.iml
+
+# 특정 에셋 폴더 무시
+Assets/LayerLab/
+Assets/LayerLab.meta

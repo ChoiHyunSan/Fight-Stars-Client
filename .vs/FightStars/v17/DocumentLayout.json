@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Unity\\FightStars\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\layer lab\\scripts\\panelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\layer lab\\scripts\\panelcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{5d51d786-731c-4256-bf95-6a6dd495c7d7}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PanelControl.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Layer Lab\\Scripts\\PanelControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Layer Lab\\Scripts\\PanelControl.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Layer Lab\\Scripts\\PanelControl.cs",
+              "RelativeToolTip": "Assets\\Layer Lab\\Scripts\\PanelControl.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAQwIIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T14:29:41.647Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
