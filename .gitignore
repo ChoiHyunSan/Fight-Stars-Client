@@ -68,3 +68,5 @@ desktop.ini
 # 특정 에셋 폴더 무시
 Assets/LayerLab/
 Assets/LayerLab.meta
+
+.vs/
