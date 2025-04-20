@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class LoginUIManager : MonoBehaviour
 {
+    [Header("UI Elements")]
+    public GameObject loginPopup;
+    public GameObject registerPopup;
 
+    public static LoginUIManager Instance { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowLoginPopup()
     {
-        
+        loginPopup.SetActive(true);
+        registerPopup.SetActive(false);
+    }
+
+    public void ShowRegisterPopup()
+    {
+        loginPopup.SetActive(false);
+        registerPopup.SetActive(true);
     }
 }

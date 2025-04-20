@@ -477,10 +477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328f13bfac2d06946840135444519dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInput: {fileID: 0}
-  passwordInput: {fileID: 0}
-  loginButton: {fileID: 1005261961}
-  registerButton: {fileID: 987273650}
 --- !u!1 &145273546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,6 +4095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53802dbda78e12f459a01de296729444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loginPopup: {fileID: 85963926}
+  registerPopup: {fileID: 669747327}
 --- !u!4 &1305730477
 Transform:
   m_ObjectHideFlags: 0

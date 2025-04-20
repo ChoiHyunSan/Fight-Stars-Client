@@ -37,7 +37,7 @@ public class AuthManager : MonoBehaviour
 
     public void Login(string email, string password)
     {
-        var request = new LoginRequest { email = email, password = password };
+        var request = new LoginRequest { Username = email, Password = password };
 
         StartCoroutine(AuthApi.Login(request,
             res =>
