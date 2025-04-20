@@ -101,7 +101,7 @@ public static class ApiClient
         }
         else
         {
-            onError?.Invoke(request.error);
+            onError?.Invoke(request.responseCode.ToString());
         }
     }
 

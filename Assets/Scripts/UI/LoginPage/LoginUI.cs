@@ -14,15 +14,15 @@ public class LoginUI : MonoBehaviour
     void Start()
     {
         nicknameInput = transform.Find("Popup/InputField_ID")?.GetComponent<TMP_InputField>();
-        passwordInput = transform.Find("Popup/InputField_Password")?.GetComponent< TMP_InputField>();
+        passwordInput = transform.Find("Popup/InputField_Password")?.GetComponent<TMP_InputField>();
         loginButton = transform.Find("Popup/Button_Login")?.GetComponent<Button>();
         registerButton = transform.Find("Popup/Button_SignUp")?.GetComponent<Button>();
 
-        if(nicknameInput == null || passwordInput == null || loginButton == null || registerButton == null)
+        if (nicknameInput == null || passwordInput == null || loginButton == null || registerButton == null)
         {
             Debug.LogError("One or more UI elements are not assigned in the inspector.");
             return;
-        }   
+        }
 
         loginButton.onClick.AddListener(OnLoginButtonClicked);
         registerButton.onClick.AddListener(OnRegisterButtonClicked);
@@ -39,8 +39,46 @@ public class LoginUI : MonoBehaviour
     {
         Debug.Log("Login button clicked");
 
-        // TODO : 입력값 검증
+        TrimInputFields();
 
-        AuthManager.Instance.Login(nicknameInput.text, passwordInput.text);
+        // TODO : 입력값 검증
+        if (ValidateNicknameInput() && ValidatePasswordInput())
+        {
+            AuthManager.Instance.Login(nicknameInput.text, passwordInput.text);
+        }
+
+        ClearInputFields();
+    }
+
+    private void TrimInputFields()
+    {
+        nicknameInput.text = nicknameInput.text.Trim();
+        passwordInput.text = passwordInput.text.Trim();
+    }
+
+    private void ClearInputFields()
+    {
+        nicknameInput.text = string.Empty;
+        passwordInput.text = string.Empty;
+    }
+
+    private bool ValidateNicknameInput()
+    {
+        if (string.IsNullOrEmpty(nicknameInput.text))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Please enter your nickname.");
+            return false;
+        }
+        return true;
+    }
+
+    private bool ValidatePasswordInput()
+    {
+        if (string.IsNullOrEmpty(passwordInput.text))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Please enter your password.");
+            return false;
+        }
+        return true;
     }
 }

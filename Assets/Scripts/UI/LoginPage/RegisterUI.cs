@@ -1,7 +1,7 @@
-using System;
+ï»¿using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RegisterUI : MonoBehaviour
@@ -45,8 +45,84 @@ public class RegisterUI : MonoBehaviour
     {
         Debug.Log("Signup button clicked");
 
-        // TODO : ÀÔ·Â°ª °ËÁõ
+        TrimInputFields();
 
-        AuthManager.Instance.Register(emailInput.text, passwordInput.text, nicknameInput.text);
+        if (ValidateEmailInput() && ValidateNicknameInput() && ValidatePasswordInput())
+        {
+            AuthManager.Instance.Register(emailInput.text, passwordInput.text, nicknameInput.text);
+        }
+
+        ClearInputFields();
+    }
+
+    private void TrimInputFields()
+    {
+        emailInput.text = emailInput.text.Trim();
+        nicknameInput.text = nicknameInput.text.Trim();
+        passwordInput.text = passwordInput.text.Trim();
+    }
+
+    private void ClearInputFields()
+    {
+        emailInput.text = string.Empty;
+        nicknameInput.text = string.Empty;
+        passwordInput.text = string.Empty;
+    }
+
+    private bool ValidatePasswordInput()
+    {
+        if (string.IsNullOrEmpty(passwordInput.text))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Password is required.");
+            return false;
+        }
+
+        if(passwordInput.text.Length < 8 || passwordInput.text.Length > 20)
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Password must be 8â€“20 characters.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool ValidateNicknameInput()
+    {
+        if (string.IsNullOrEmpty(nicknameInput.text))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Nickname is required.");
+            return false;
+        }
+
+        if(nicknameInput.text.Length < 3 || nicknameInput.text.Length > 20)
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Nickname must be 3â€“20 characters.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool ValidateEmailInput()
+    {
+        if (string.IsNullOrEmpty(emailInput.text))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Email is required.");
+            return false;
+        }
+
+        if(!emailInput.text.Contains("@") || !emailInput.text.Contains("."))
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Invalid email format.");
+            return false;
+        }
+
+        if(emailInput.text.Length < 5 || emailInput.text.Length > 30)
+        {
+            LoginUIManager.Instance.ShowNoticePopup("Email must be 5â€“30 characters.");
+            return false;
+        }
+
+        return true;
     }
 }
