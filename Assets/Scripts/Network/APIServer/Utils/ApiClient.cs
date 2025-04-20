@@ -15,6 +15,8 @@ public static class ApiClient
         string url = $"{BaseUrl}/{path}";
         string jsonData = JsonUtility.ToJson(body);
 
+        Debug.Log("jsonData: " + jsonData);
+
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] rawData = Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(rawData);

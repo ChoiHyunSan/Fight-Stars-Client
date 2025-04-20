@@ -40,36 +40,45 @@ public class AuthManager : MonoBehaviour
         var request = new LoginRequest { Username = email, Password = password };
 
         StartCoroutine(AuthApi.Login(request,
-            res =>
+            (LoginResponse res) =>
             {
+                Debug.Log("Login successful");
+
+                // JWT 토큰 저장
                 PlayerPrefs.SetString("jwt", res.accessToken);
                 PlayerPrefs.SetString("refresh_token", res.refreshToken);
-                Debug.Log("로그인 성공: " + res.userName);
 
-                // 로그인 성공 시 다음 씬으로 이동 (예: 로비)
-
+                // 데이터 로딩 화면으로 이동
+                SceneManager.LoadScene("LoadingPage");
             },
-            err =>
+            (string err) =>
             {
-                Debug.LogError("로그인 실패: " + err);
+                Debug.Log($"Login failed: {err}");
+
+                // TODO : 실패 이유에 따라서 UI에 에러 메시지 출력
+                // 예: "유효하지 않은 ID입니다. 다시 시도해주세요."
+                LoginUIManager.Instance.ShowNoticePopup("Login failed");
             }));
     }
 
     public void Register(string email, string password, string username)
     {
-        var request = new RegisterRequest { email = email, password = password, username = username };
+        var request = new RegisterRequest { Email = email, Password = password, Username = username };
 
         StartCoroutine(AuthApi.Register(request,
-            res =>
+            (RegisterResponse res) =>
             {
-                Debug.Log("회원가입 성공: " + res.username);
+                Debug.Log("Login successful");
 
-                // 회원가입 후 자동 로그인 or 로그인 페이지 이동
-
+                LoginUIManager.Instance.ShowNoticePopup("Register success");
+                LoginUIManager.Instance.ShowLoginPopup();
             },
-            err =>
+            (string err) =>
             {
-                Debug.LogError("회원가입 실패: " + err);
+                Debug.Log($"Register failed: {err}");
+
+                // TODO : 오류 메시지를 좀 더 상세하게 출력하도록 수정
+                LoginUIManager.Instance.ShowNoticePopup("Register failed");
             }));
     }
 }

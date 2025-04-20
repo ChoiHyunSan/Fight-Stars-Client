@@ -3,9 +3,9 @@ using System;
 [System.Serializable]
 public class RegisterRequest
 {
-    public string email;
-    public string password;
-    public string username;
+    public string Email;
+    public string Password;
+    public string Username;
 }
 
 [System.Serializable]

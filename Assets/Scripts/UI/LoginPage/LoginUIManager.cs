@@ -7,7 +7,7 @@ public class LoginUIManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject loginPopup;
     public GameObject registerPopup;
-
+    public GameObject noticePopup;
     public static LoginUIManager Instance { get; private set; }
 
     private void Awake()
@@ -32,5 +32,16 @@ public class LoginUIManager : MonoBehaviour
     {
         loginPopup.SetActive(false);
         registerPopup.SetActive(true);
+    }
+
+    public void ShowNoticePopup(string message)
+    {
+        noticePopup.SetActive(true);
+        noticePopup.GetComponent<LoginNoticeUI>().UpdateMessage(message);
+    }
+
+    public void HideNoticePopup()
+    {
+        noticePopup.SetActive(false);
     }
 }
