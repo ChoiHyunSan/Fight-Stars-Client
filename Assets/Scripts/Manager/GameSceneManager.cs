@@ -45,7 +45,9 @@ public class GameSceneManager : MonoBehaviour
                 SceneManager.LoadScene("LobbyPage");
                 break;
             default:
+#if UNITY_EDITOR
                 Debug.LogError("Invalid scene type");
+#endif
                 break;
         }
     }

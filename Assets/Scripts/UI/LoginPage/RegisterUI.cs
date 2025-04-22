@@ -23,12 +23,14 @@ public class RegisterUI : MonoBehaviour
         signupButton = transform.Find("Popup/Button_SignUp")?.GetComponent<Button>();
         loginButton = transform.Find("Popup/Button_Login")?.GetComponent<Button>();
 
+#if UNITY_EDITOR
         if(emailInput == null || nicknameInput == null || passwordInput == null || signupButton == null || loginButton == null)
         { 
             Debug.LogError("One or more UI elements are not assigned in the inspector.");
             Debug.LogError($"emailInput: {emailInput}, nicknameInput: {nicknameInput}, passwordInput: {passwordInput}, signupButton: {signupButton}, loginButton: {loginButton}");
             return;
         }
+#endif
 
         signupButton.onClick.AddListener(OnSignupButtonClicked);
         loginButton.onClick.AddListener(OnLoginButtonClicked);
@@ -36,14 +38,18 @@ public class RegisterUI : MonoBehaviour
 
     private void OnLoginButtonClicked()
     {
+#if UNITY_EDITOR
         Debug.Log("Login button clicked. Move To LoginUI");
+#endif
 
         LoginUIManager.Instance.ShowLoginPopup();
     }
 
     private void OnSignupButtonClicked()
     {
+#if UNITY_EDITOR
         Debug.Log("Signup button clicked");
+#endif
 
         TrimInputFields();
 

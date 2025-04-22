@@ -26,12 +26,13 @@ public class UserDataManager : MonoBehaviour
     private void Start()
     {
         // 초기화 코드
-        Debug.Log("UserDataManager initialized");
         LoadData();
 
+#if UNITY_EDITOR
         // _userInfo 디버깅
         Debug.Log("UserInfo initialized");
         Debug.Log($"UserInfo: {_userInfo.nickname}");
+#endif
     }
 
     private void LoadData()
@@ -39,41 +40,20 @@ public class UserDataManager : MonoBehaviour
         StartCoroutine(DataApi.GetUserData(
             (UserLoadDataResponse res) =>
             {
+#if UNITY_EDITOR
                 Debug.Log("User data loaded successfully");
+#endif
                 SetUserData(res);
-                LoggindUserInfo();
                 GameSceneManager.Instance.LoadScene(SceneType.Lobby);
             },
             (string err) =>
             {
+#if UNITY_EDITOR
                 Debug.Log($"Failed to load user data: {err}");
+#endif
                 GameSceneManager.Instance.LoadScene(SceneType.Title);
             }));
     }
-
-    private void LoggindUserInfo()
-    {
-        Debug.Log($"Nickname: {_userInfo.nickname}");
-        Debug.Log($"Avatar: {_userInfo.avatar}");
-        Debug.Log($"Gold: {_userInfo.currency.gold}");
-        Debug.Log($"Level: {_userInfo.stats.level}");
-        Debug.Log($"Wincount: {_userInfo.stats.winCount}");
-        Debug.Log($"Losecount: {_userInfo.stats.loseCount}");
-        Debug.Log($"Totalplaycount: {_userInfo.stats.totalPlayCount}");
-        Debug.Log($"Highestrank: {_userInfo.stats.highestRank}");
-        Debug.Log($"Currenttrophy: {_userInfo.stats.currentTrophy}");
-        Debug.Log($"Inventorycount: {_userInfo.inventory.Count}");
-        foreach (var item in _userInfo.inventory)
-        {
-            Debug.Log($"Item: {item.itemId}, {item.quantity}");
-        }
-        Debug.Log($"UserInfo: {_userInfo.brawlers.Count}");
-        foreach (var brawler in _userInfo.brawlers)
-        {
-            Debug.Log($"Brawler: {brawler.brawlerId}, {brawler.level}, {brawler.trophy}, {brawler.powerPoint}");
-        }
-    }
-
     private void SetUserData(UserLoadDataResponse res)
     {
         _userInfo.SetData(res);

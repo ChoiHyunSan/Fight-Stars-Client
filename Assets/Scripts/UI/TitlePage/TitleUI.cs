@@ -23,7 +23,9 @@ public class TitleUI : MonoBehaviour
 
     private void OnPressToStart()
     {
+#if UNITY_EDITOR
         Debug.Log("Press to Start clicked");
+#endif
 
         AuthManager.Instance.SaveLogin();
     }

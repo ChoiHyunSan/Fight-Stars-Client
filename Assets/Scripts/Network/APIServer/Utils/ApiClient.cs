@@ -12,12 +12,13 @@ public static class ApiClient
 
     public static IEnumerator Post<T>(string path, object body, Action<T> onSuccess, Action<string> onError, bool retrying = false)
     {
-        Debug.Log($"POST: {BaseUrl}/{path}");
-
         string url = $"{BaseUrl}/{path}";
         string jsonData = JsonUtility.ToJson(body);
 
+#if UNITY_EDITOR
+        Debug.Log($"POST: {BaseUrl}/{path}");
         Debug.Log("jsonData: " + jsonData);
+#endif
 
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] rawData = Encoding.UTF8.GetBytes(jsonData);
@@ -82,7 +83,9 @@ public static class ApiClient
         {
             try
             {
+#if UNITY_EDITOR
                 Debug.Log("Response JSON: " + request.downloadHandler.text);
+#endif
                 T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
             }
