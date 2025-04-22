@@ -27,7 +27,7 @@ public class AuthManager : MonoBehaviour
                 Debug.Log("Login successful");
 
                 // 데이터 로딩 화면으로 이동
-                SceneManager.LoadScene("LoadingPage");
+                GameSceneManager.Instance.LoadScene(SceneType.Loading);
             },
             (string err) =>
             {
@@ -49,7 +49,7 @@ public class AuthManager : MonoBehaviour
                 PlayerPrefs.SetString("refresh_token", res.refreshToken);
 
                 // 데이터 로딩 화면으로 이동
-                SceneManager.LoadScene("LoadingPage");
+                GameSceneManager.Instance.LoadScene(SceneType.Loading);
             },
             (string err) =>
             {

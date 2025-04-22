@@ -1,8 +1,10 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+
 
 public static class ApiClient
 {
@@ -80,7 +82,8 @@ public static class ApiClient
         {
             try
             {
-                T result = JsonUtility.FromJson<T>(request.downloadHandler.text);
+                Debug.Log("Response JSON: " + request.downloadHandler.text);
+                T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
             }
             catch (Exception e)
@@ -109,6 +112,6 @@ public static class ApiClient
     {
         PlayerPrefs.DeleteKey("jwt");
         PlayerPrefs.DeleteKey("refresh_token");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoginPage");
+        GameSceneManager.Instance.LoadScene(SceneType.Login);
     }
 }
