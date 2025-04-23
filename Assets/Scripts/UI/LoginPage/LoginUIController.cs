@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoginUIManager : MonoBehaviour
+public class LoginUIController : MonoBehaviour
 {
     [Header("UI Elements")]
     public GameObject loginPopup;
     public GameObject registerPopup;
     public GameObject noticePopup;
-    public static LoginUIManager Instance { get; private set; }
+    public static LoginUIController Instance { get; private set; }
 
     private void Awake()
     {

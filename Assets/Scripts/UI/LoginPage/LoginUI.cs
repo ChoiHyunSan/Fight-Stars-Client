@@ -36,7 +36,7 @@ public class LoginUI : MonoBehaviour
         Debug.Log("Register button clicked");
 #endif
 
-        LoginUIManager.Instance.ShowRegisterPopup();
+        LoginUIController.Instance.ShowRegisterPopup();
     }
 
     private void OnLoginButtonClicked()
@@ -72,7 +72,7 @@ public class LoginUI : MonoBehaviour
     {
         if (string.IsNullOrEmpty(nicknameInput.text))
         {
-            LoginUIManager.Instance.ShowNoticePopup("Please enter your nickname.");
+            LoginUIController.Instance.ShowNoticePopup("Please enter your nickname.");
             return false;
         }
         return true;
@@ -82,7 +82,7 @@ public class LoginUI : MonoBehaviour
     {
         if (string.IsNullOrEmpty(passwordInput.text))
         {
-            LoginUIManager.Instance.ShowNoticePopup("Please enter your password.");
+            LoginUIController.Instance.ShowNoticePopup("Please enter your password.");
             return false;
         }
         return true;

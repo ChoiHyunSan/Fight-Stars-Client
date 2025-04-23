@@ -505,6 +505,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff8fb623e4171744a4f60d48e2f7c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _userInfo:
+    nickname: 
+    avatar: 
+    currency:
+      gold: 0
+      gems: 0
+      energy: 0
+      exp: 0
+    stats:
+      level: 0
+      winCount: 0
+      loseCount: 0
+      totalPlayCount: 0
+      highestRank: 0
+      currentTrophy: 0
+    inventory: []
+    brawlers: []
 --- !u!1 &686770697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1274,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1994916486}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

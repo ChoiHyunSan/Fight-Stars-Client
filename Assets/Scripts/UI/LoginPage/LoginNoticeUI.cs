@@ -25,7 +25,7 @@ public class LoginNoticeUI : MonoBehaviour
 
     private void OnOkButtonClicked()
     {
-        LoginUIManager.Instance.HideNoticePopup();
+        LoginUIController.Instance.HideNoticePopup();
 
     }
 

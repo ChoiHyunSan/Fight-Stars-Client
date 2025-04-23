@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Unity\\FightStars\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\scripts\\ui\\lobbypage\\currencyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\currencyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\scripts\\ui\\lobbypage\\iuserdataui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\iuserdataui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\scripts\\ui\\lobbypage\\userinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\userinfoui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\scripts\\ui\\lobbypage\\userprofileui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\userprofileui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\unity\\fightstars\\assets\\scripts\\ui\\loginpage\\registerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\registerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\network\\apiserver\\data\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +25,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\loginpage\\loginui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\loginui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\lobbypage\\lobbyuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\lobbyuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\loginpage\\loginuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\loginuicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\loginpage\\loginnoticeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\loginnoticeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\lobbypage\\currencyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\lobbypage\\currencyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\manager\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\layerlab\\3d casual character\\demo_v2\\screenshot camera\\screenshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\loginpage\\registerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\registerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\layerlab\\3d casual character\\demo_v2\\scripts\\slot\\presetslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\layerlab\\3d casual character\\demo_v2\\scripts\\slot\\presetslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\scripts\\ui\\loginpage\\loginnoticeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\loginpage\\loginnoticeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3165003-BF2D-DD1C-D7C7-658A0EEE9095}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\Unity\\FightStars\\assets\\layerlab\\3d casual character\\demo_v2\\scripts\\character\\characterprefabsaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,8 +85,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 173,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 285,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,28 +98,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IUserDataUI.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\IUserDataUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\IUserDataUI.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\IUserDataUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\IUserDataUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserInfoUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAwBwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T12:59:37.58Z",
+              "WhenOpened": "2025-04-23T14:39:09.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "RegisterUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAhwCQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T05:35:06.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CurrencyUI.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\CurrencyUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\CurrencyUI.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\CurrencyUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\CurrencyUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T12:58:25.13Z",
+              "WhenOpened": "2025-04-23T12:58:25.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserDataManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\UserDataManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\UserDataManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\UserDataManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Manager\\UserDataManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T05:35:56.418Z",
               "EditorCaption": ""
             },
             {
@@ -122,25 +155,26 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\APIServer\\Data\\UserInfo.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Network\\APIServer\\Data\\UserInfo.cs",
               "RelativeToolTip": "Assets\\Scripts\\Network\\APIServer\\Data\\UserInfo.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAwAsAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAwEkAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T10:31:41.635Z"
+              "WhenOpened": "2025-04-23T10:31:41.635Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserDataManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\UserDataManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\UserDataManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\UserDataManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Manager\\UserDataManager.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAwwA8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "LobbyUIController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\LobbyUIController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\LobbyUIController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\LobbyUIController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\LobbyUIController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T05:35:56.418Z"
+              "WhenOpened": "2025-04-23T14:25:30.568Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "TitleUI.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\TitlePage\\TitleUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\TitlePage\\TitleUI.cs",
@@ -152,7 +186,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
+              "Title": "LoginNoticeUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T05:33:40.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "ScreenShot.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\LayerLab\\3D Casual Character\\Demo_v2\\ScreenShot Camera\\ScreenShot.cs",
               "RelativeDocumentMoniker": "Assets\\LayerLab\\3D Casual Character\\Demo_v2\\ScreenShot Camera\\ScreenShot.cs",
@@ -164,19 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RegisterUI.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\RegisterUI.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAewDIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T05:35:06.754Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "PresetSlot.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\LayerLab\\3D Casual Character\\Demo_v2\\Scripts\\Slot\\PresetSlot.cs",
               "RelativeDocumentMoniker": "Assets\\LayerLab\\3D Casual Character\\Demo_v2\\Scripts\\Slot\\PresetSlot.cs",
@@ -188,19 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "LoginNoticeUI.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\LoginNoticeUI.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAewBEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T05:33:40.782Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "GameSceneManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\GameSceneManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\GameSceneManager.cs",
@@ -212,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "CharacterPrefabSaver.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\LayerLab\\3D Casual Character\\Demo_v2\\Scripts\\Character\\CharacterPrefabSaver.cs",
               "RelativeDocumentMoniker": "Assets\\LayerLab\\3D Casual Character\\Demo_v2\\Scripts\\Character\\CharacterPrefabSaver.cs",
@@ -224,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "CaptureControl.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\LayerLab\\3D Casual Character\\Demo_v2\\ScreenShot Camera\\CaptureControl.cs",
               "RelativeDocumentMoniker": "Assets\\LayerLab\\3D Casual Character\\Demo_v2\\ScreenShot Camera\\CaptureControl.cs",
@@ -236,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "AuthManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\AuthManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\AuthManager.cs",
@@ -248,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Network\\APIServer\\Utils\\ApiClient.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\APIServer\\Utils\\ApiClient.cs",
@@ -260,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\Manager\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\GameManager.cs",
@@ -273,18 +295,30 @@
           ]
         },
         {
-          "DockedWidth": 209,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 97,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserInfoUI.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\UserInfoUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "LoginUIController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginUIController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\LoginUIController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginUIController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\LoginUIController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAUwAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T14:25:39.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserProfileUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserProfileUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LobbyPage\\UserProfileUI.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LobbyPage\\UserProfileUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\LobbyPage\\UserProfileUI.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-23T10:47:41.66Z",
               "EditorCaption": ""
@@ -297,7 +331,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\LoginPage\\LoginUI.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\Unity\\FightStars\\Assets\\Scripts\\UI\\LoginPage\\LoginUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\LoginPage\\LoginUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxwAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T05:34:28.88Z"
             }

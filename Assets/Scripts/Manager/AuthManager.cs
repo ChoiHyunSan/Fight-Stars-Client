@@ -62,7 +62,7 @@ public class AuthManager : MonoBehaviour
 
                 // TODO : 실패 이유에 따라서 UI에 에러 메시지 출력
                 // 예: "유효하지 않은 ID입니다. 다시 시도해주세요."
-                LoginUIManager.Instance.ShowNoticePopup("Login failed");
+                LoginUIController.Instance.ShowNoticePopup("Login failed");
             }));
     }
 
@@ -76,8 +76,8 @@ public class AuthManager : MonoBehaviour
 #if UNITY_EDITOR
                 Debug.Log("Login successful");
 #endif
-                LoginUIManager.Instance.ShowNoticePopup("Register success");
-                LoginUIManager.Instance.ShowLoginPopup();
+                LoginUIController.Instance.ShowNoticePopup("Register success");
+                LoginUIController.Instance.ShowLoginPopup();
             },
             (string err) =>
             {
@@ -86,7 +86,7 @@ public class AuthManager : MonoBehaviour
 #endif
 
                 // TODO : 오류 메시지를 좀 더 상세하게 출력하도록 수정
-                LoginUIManager.Instance.ShowNoticePopup("Register failed");
+                LoginUIController.Instance.ShowNoticePopup("Register failed");
             }));
     }
 }
