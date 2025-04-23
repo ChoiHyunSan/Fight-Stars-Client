@@ -9,6 +9,13 @@ public class LobbyUIController : MonoBehaviour
     public GameObject settingPopup;
     public Button settingButton;
 
+    public Button stageButton;
+    public Button matchingButton;
+
+    public Button shopButton;
+    public Button inventoryButton;
+    public Button brawlerButton;
+
     public static LobbyUIController Instance { get; private set; }
 
     void Awake()
@@ -23,9 +30,20 @@ public class LobbyUIController : MonoBehaviour
         }
     }
 
-    private void Start()
+    void Start()
     {
+#if UNITY_EDITOR
+        if(UserDataManager.Instance == null || UserDataManager.Instance._userInfo == null)
+        {
+            Debug.LogError("UserDataManager or UserInfo is null");
+            return;
+        }
+#endif
+
         settingButton.onClick.AddListener(OnSettingButtonClicked);
+        stageButton.onClick.AddListener(OnStageButtonClicked);
+        matchingButton.onClick.AddListener(OnMatchingButtonClicked);
+
     }
 
     private void OnSettingButtonClicked()
@@ -51,5 +69,25 @@ public class LobbyUIController : MonoBehaviour
     public void HideSettingPopup()
     {
         settingPopup.SetActive(false);
+    }
+
+    public void OnStageButtonClicked()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Stage button clicked");
+        GameSceneManager.Instance.LoadScene(SceneType.Gamemode);
+#endif
+
+        // TODO : 현재 선택한 게임 모드가 표현되도록 처리
+    }
+
+    public void OnMatchingButtonClicked()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Matching button clicked");
+#endif
+
+        // TODO : 매칭 처리
+        // GameSceneManager.Instance.LoadScene(SceneType.Loading);
     }
 }

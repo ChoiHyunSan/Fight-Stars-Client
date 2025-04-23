@@ -21,11 +21,6 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // 초기화 코드
-    }
-
     public void LoadScene(SceneType sceneType)
     {
         currentScene = sceneType;
@@ -44,6 +39,9 @@ public class GameSceneManager : MonoBehaviour
             case SceneType.Lobby:
                 SceneManager.LoadScene("LobbyPage");
                 break;
+            case SceneType.Gamemode:
+                SceneManager.LoadScene("GamemodePage");
+                break;
             default:
 #if UNITY_EDITOR
                 Debug.LogError("Invalid scene type");
@@ -51,12 +49,4 @@ public class GameSceneManager : MonoBehaviour
                 break;
         }
     }
-}
-
-public enum SceneType
-{
-    Title,
-    Login,
-    Loading,
-    Lobby,
 }
