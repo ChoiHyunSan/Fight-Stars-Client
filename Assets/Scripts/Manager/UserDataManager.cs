@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class UserDataManager : MonoBehaviour
 {
     [SerializeField]
-    private UserInfo _userInfo  = new UserInfo();
+    public UserInfo _userInfo  = new UserInfo();
 
     public static UserDataManager Instance { get; private set; }
 

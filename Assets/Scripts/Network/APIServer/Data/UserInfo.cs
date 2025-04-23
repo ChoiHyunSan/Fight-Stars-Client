@@ -4,6 +4,8 @@ using System.Collections.Generic;
 [System.Serializable]
 public class UserInfo
 {
+    public event Action OnUserInfoChanged;
+
     public string nickname;
     public string? avatar;
     public UserCurrency currency;
@@ -51,16 +53,18 @@ public class UserInfo
                 powerPoint = brawler.PowerPoint
             });
         }
+
+        OnUserInfoChanged?.Invoke();
     }
 }
 
 [System.Serializable]
 public class UserCurrency
 {
-    public int gold { get; set; }
-    public int gems { get; set; }
-    public int energy { get; set; }
-    public int exp { get; set; }
+    public int gold;
+    public int gems;
+    public int energy;
+    public int exp;
 }
 
 [System.Serializable]
