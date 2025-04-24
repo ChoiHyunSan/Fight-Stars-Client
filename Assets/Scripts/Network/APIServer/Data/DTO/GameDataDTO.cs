@@ -4,12 +4,12 @@
 // Description
 // : 유저가 로그인 후 로딩화면에서 불러올 전체 데이터를 담는 DTO
 // Author : ChoiHyunSan
-using System;
 using System.Collections.Generic;
 
 
 public class UserLoadDataResponse
 {
+    public int UserId { get; set; }
     public string Nickname { get; set; }
     public string? Avatar { get; set; }
     public UserCurrencyDto Currency { get; set; }

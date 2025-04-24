@@ -86,8 +86,6 @@ public class LobbyUIController : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("Matching button clicked");
 #endif
-
-        // TODO : ¸ÅÄª Ã³¸®
-        // GameSceneManager.Instance.LoadScene(SceneType.Loading);
+        GameSceneManager.Instance.LoadScene(SceneType.Matching);
     }
 }

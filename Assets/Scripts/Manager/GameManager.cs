@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField]
-    private Gamemode currentGamemode;
+    public Gamemode currentGamemode;
+    public int currentCharacterId;
 
     private void Awake()
     {

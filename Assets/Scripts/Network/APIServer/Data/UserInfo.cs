@@ -6,15 +6,17 @@ public class UserInfo
 {
     public event Action OnUserInfoChanged;
 
+    public int userId;
     public string nickname;
     public string? avatar;
     public UserCurrency currency;
-    public UserStats stats  ;
+    public UserStats stats;
     public List<UserInventory> inventory;
     public List<UserBrawler> brawlers;
 
     public void SetData(UserLoadDataResponse res)
     {
+        userId = res.UserId;
         nickname = res.Nickname;
         avatar = res.Avatar;
         currency = new UserCurrency

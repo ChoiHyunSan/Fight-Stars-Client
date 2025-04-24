@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,9 +43,30 @@ public class GameSceneManager : MonoBehaviour
             case SceneType.Gamemode:
                 SceneManager.LoadScene("GamemodePage");
                 break;
+            case SceneType.Matching:
+                SceneManager.LoadScene("MatchingPage");
+                break;
             default:
 #if UNITY_EDITOR
                 Debug.LogError("Invalid scene type");
+#endif
+                break;
+        }
+    }
+
+    public void LoadScene(Gamemode gamemode)
+    {
+        switch(gamemode)
+        {
+            case Gamemode.Deathmatch:
+                SceneManager.LoadScene("Deathmatch");
+                break;
+            case Gamemode.Occupation:
+                SceneManager.LoadScene("Occupation");
+                break;
+            default:
+#if UNITY_EDITOR
+                Debug.LogError("Invalid gamemode");
 #endif
                 break;
         }

@@ -5,4 +5,5 @@ public enum SceneType
     Loading,
     Lobby,
     Gamemode,
+    Matching,
 }

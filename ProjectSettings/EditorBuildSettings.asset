@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingPage.unity
     guid: b1bef077fcffbc24a816d4e77712671e
+  - enabled: 1
+    path: Assets/Scenes/GamemodePage.unity
+    guid: 6f06a45a327bbee459baa1170cc9cfe5
+  - enabled: 1
+    path: Assets/Scenes/MatchingPage.unity
+    guid: fc14292c0cef7b04fa8efd637272f95c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Deathmatch.unity
+    guid: e116e8b03708ddb479e0f7689a78e7d9
   m_configObjects: {}
