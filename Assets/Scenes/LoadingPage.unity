@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _userInfo:
+    userId: 0
     nickname: 
     avatar: 
     currency:
@@ -566,6 +567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c513aea4c614d8458a0c46b6af46bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGamemode: 0
+  currentCharacterId: 0
 --- !u!1 &704563238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1149,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

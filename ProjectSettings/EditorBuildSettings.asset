@@ -26,4 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Deathmatch.unity
     guid: e116e8b03708ddb479e0f7689a78e7d9
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 7a7299784e321a946b0806fee69ac76e, type: 2}
