@@ -70,10 +70,6 @@ public class MatchClient : MonoBehaviour
             var result = await _webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), _cts.Token);
             var jsonResponse = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
-#if UNITY_EDITOR
-            Debug.Log($"매칭 응답: {jsonResponse}");
-#endif
-
             if (_webSocket != null && _webSocket.State == WebSocketState.Open)
             {
                 await _webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Match complete", CancellationToken.None);
@@ -81,14 +77,14 @@ public class MatchClient : MonoBehaviour
                 Debug.Log("✅ WebSocket 연결 종료됨");
 #endif
             }
-
             var response = JsonUtility.FromJson<MatchResponse>(jsonResponse);
+
 #if UNITY_EDITOR
-            Debug.Log($"Room ID: {response.roomId}, Password: {response.password}, IP: {response.ip}, Port: {response.port}");
+            Debug.Log("매칭 응답 수신됨: " + jsonResponse);
 #endif
 
             // 현재는 데스매치 맵으로 이동하도록 하드코딩
-            GameSceneManager.Instance.LoadScene(Gamemode.Deathmatch);
+            GameManager.Instance.JoinGame(response.roomId, response.password, response.ip, response.port);
         }
     }
 
