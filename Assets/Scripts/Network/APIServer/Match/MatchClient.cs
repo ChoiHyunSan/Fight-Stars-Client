@@ -36,12 +36,14 @@ public class MatchClient : MonoBehaviour
             Debug.Log("WebSocket 연결됨");
 #endif
 
-            var json = JsonUtility.ToJson(new
+            var request = new MatchRequest
             {
-                userId,
-                characterId,
-                mode
-            });
+                userId = userId,
+                characterId = characterId,
+                skinId = 1, // 하드코딩된 스킨 ID
+                mode = mode
+            };
+            var json = JsonUtility.ToJson(request);
 
             var buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(json));
             await _webSocket.SendAsync(buffer, WebSocketMessageType.Text, true, _cts.Token);
@@ -66,10 +68,10 @@ public class MatchClient : MonoBehaviour
         while (_webSocket.State == WebSocketState.Open)
         {
             var result = await _webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), _cts.Token);
-            var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
+            var jsonResponse = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
 #if UNITY_EDITOR
-            Debug.Log($"매칭 응답: {response}");
+            Debug.Log($"매칭 응답: {jsonResponse}");
 #endif
 
             if (_webSocket != null && _webSocket.State == WebSocketState.Open)
@@ -80,7 +82,11 @@ public class MatchClient : MonoBehaviour
 #endif
             }
 
-            // TODO: matchSuccess JSON 파싱 → 씬 이동 처리
+            var response = JsonUtility.FromJson<MatchResponse>(jsonResponse);
+#if UNITY_EDITOR
+            Debug.Log($"Room ID: {response.roomId}, Password: {response.password}, IP: {response.ip}, Port: {response.port}");
+#endif
+
             // 현재는 데스매치 맵으로 이동하도록 하드코딩
             GameSceneManager.Instance.LoadScene(Gamemode.Deathmatch);
         }
