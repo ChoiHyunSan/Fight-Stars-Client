@@ -10,20 +10,25 @@ public class MatchClient : MonoBehaviour
     {
         int userId = UserDataManager.Instance._userInfo.userId;
 
-        // 우선 캐릭터 ID를 하드코딩 
+        // 우선 캐릭터 ID와 스킨 ID를 하드코딩 
         int characterId = GameManager.Instance.currentCharacterId;
+        int skinId = 1;
         characterId = 1;
 
         string mode = GamemodeHelper.GetGamemodeName(GameManager.Instance.currentGamemode);
 
+#if UNITY_EDITOR
+        Debug.Log($"매칭 요청: userId = {userId}, characterId = {characterId}, mode = {mode}");
+#endif
+
         // 매칭 처리
-        StartMatch(userId, characterId, mode);
+        StartMatch(userId, characterId, skinId, mode);
     }
 
     private ClientWebSocket _webSocket;
     private CancellationTokenSource _cts;
 
-    private async void StartMatch(long userId, int characterId, string mode)
+    private async void StartMatch(long userId, int characterId, int skinId, string mode)
     {
         _webSocket = new ClientWebSocket();
         _cts = new CancellationTokenSource();
@@ -38,10 +43,11 @@ public class MatchClient : MonoBehaviour
 
             var request = new MatchRequest
             {
-                userId = userId,
-                characterId = characterId,
-                skinId = 1, // 하드코딩된 스킨 ID
-                mode = mode
+                UserId = userId,
+                CharacterId = characterId,
+               
+                SkinId = 1, // 하드코딩된 스킨 ID
+                Mode = mode
             };
             var json = JsonUtility.ToJson(request);
 

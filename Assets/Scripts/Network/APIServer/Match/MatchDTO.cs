@@ -1,9 +1,11 @@
+[System.Serializable]
 public class MatchRequest
 {
-    public long userId;
-    public int characterId;
-    public int skinId;
-    public string mode;
+    public long UserId;
+    public string JwtToken;
+    public int CharacterId;
+    public int SkinId;
+    public string Mode;
 }
 
 public class MatchResponse
