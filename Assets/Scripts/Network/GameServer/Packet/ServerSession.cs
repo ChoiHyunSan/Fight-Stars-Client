@@ -28,10 +28,12 @@ public class ServerSession : PacketSession
             PacketQueue.Instance.Push(i, m);
         };
 
+        GameServerInfo gameServerInfo = GameManager.Instance.gameServerInfo;
+
         C_EnterRoom enterRoom = new C_EnterRoom { 
-			RoomId = "room1" ,
-			Password = "1234",
-			UserId = 1
+			RoomId = gameServerInfo.roomId,
+			Password = gameServerInfo.password,
+			UserId = UserDataManager.Instance._userInfo.userId
         };
 		NetworkManager.Instance.Send(enterRoom);
     }
