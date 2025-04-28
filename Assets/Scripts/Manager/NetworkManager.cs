@@ -8,6 +8,21 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour
 {
+    public static NetworkManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +37,8 @@ public class NetworkManager : MonoBehaviour
             Action<PacketSession, IMessage> handler = PacketManager.Instance.GetPacketHandler(packet.Id);
             if (handler != null)
                 handler.Invoke(_session, packet.Message);
+
+            Debug.Log($"Packet Id: {packet.Id}, Message: {packet.Message.ToString()}");
         }
     }
 
@@ -30,6 +47,11 @@ public class NetworkManager : MonoBehaviour
     public void Send(ArraySegment<byte> sendBuff)
     {
         _session.Send(sendBuff);
+    }
+
+    public void Send(IMessage message)
+    {
+        _session.Send(message);
     }
 
     private void Init()

@@ -5954,7 +5954,7 @@ GameObject:
   - component: {fileID: 3663149068058631406}
   - component: {fileID: 566529276831959732}
   m_Layer: 0
-  m_Name: Map_deathmatch
+  m_Name: Deathmatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MatchingPage.unity
     guid: fc14292c0cef7b04fa8efd637272f95c
   - enabled: 1
-    path: Assets/Scenes/GameScene/Deathmatch.unity
+    path: Assets/Scenes/GamePage.unity
     guid: e116e8b03708ddb479e0f7689a78e7d9
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,

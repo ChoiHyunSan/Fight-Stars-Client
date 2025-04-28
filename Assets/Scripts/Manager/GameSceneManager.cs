@@ -59,7 +59,7 @@ public class GameSceneManager : MonoBehaviour
         switch(gamemode)
         {
             case Gamemode.Deathmatch:
-                SceneManager.LoadScene("Deathmatch");
+                SceneManager.LoadScene("GamePage");
                 break;
             case Gamemode.Occupation:
                 SceneManager.LoadScene("Occupation");
