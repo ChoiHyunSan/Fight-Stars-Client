@@ -1,6 +1,8 @@
-public enum PlayerState
+enum PlayerState
 {
     Idle,
     Move,
-    Attack
+    Attack,
+    Skill,
+    Die
 }

@@ -1,68 +1,46 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Settings")]
-    public float _moveSpeed = 5.0f;
+    [Header("Sync Settings")]
+    public float smoothingFactor = 10f;
 
-    [Header("Input Settings")]
-    public Joystick movementJoystick;
+    protected Rigidbody2D _rb;
+    protected PlayerAnimationFSM _playerAnimationFSM;
 
-    public Rigidbody2D rb;
-    private Vector2 _movementInput;
-    private Vector2 _serverPosition;
-    private bool isPositionCorrected = false;
+    protected Vector2 _targetPosition;
+    protected Vector2 _currentVelocity;
 
-    private PlayerAnimationFSM playerAnimationFSM;
+    protected bool isServerUpdateReceived = false;
 
-    private void Start()
+    protected virtual void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerAnimationFSM = GetComponent<PlayerAnimationFSM>();
+        // Physics/Rigidbody2D 찾기
+        _rb = transform.Find("Physics")?.GetComponent<Rigidbody2D>();
+        if (_rb == null) Debug.LogError("Rigidbody2D not found under 'Physics'");
+
+        // Visual/PlayerAnimationFSM 찾기
+        _playerAnimationFSM = transform.Find("Visual")?.GetComponent<PlayerAnimationFSM>();
+        if (_playerAnimationFSM == null) Debug.LogError("PlayerAnimationFSM not found under 'Visual'");
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void FixedUpdate()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            playerAnimationFSM.PlayAttack();
-        }
-#endif
-        HandleInput();
+        if (!isServerUpdateReceived) return;
+
+        _rb.position = Vector2.Lerp(_rb.position, _targetPosition, Time.fixedDeltaTime * smoothingFactor);
+        _rb.velocity = _currentVelocity;
     }
 
-    private void FixedUpdate()
+    public virtual void ApplyServerMovement(Vector2 newPosition, Vector2 newVelocity)
     {
-        if (isPositionCorrected)
-        {
-            ApplyServerCorrection();
-        }
-        else
-        {
-            Move();
-        }
+        _targetPosition = newPosition;
+        _currentVelocity = newVelocity;
+        isServerUpdateReceived = true;
     }
 
-    void HandleInput()
+    public virtual void Attack()
     {
-        _movementInput = new Vector2(movementJoystick.Horizontal, movementJoystick.Vertical);
-
-        if (_movementInput.magnitude > 1)
-            _movementInput = _movementInput.normalized;
-    }
-
-    void Move()
-    {
-        rb.velocity = _movementInput * _moveSpeed;
-    }
-
-    void ApplyServerCorrection()
-    {
-        rb.position = _serverPosition;
-        rb.velocity = Vector2.zero;
-        isPositionCorrected = false;
+        _playerAnimationFSM?.PlayAttack();
     }
 }

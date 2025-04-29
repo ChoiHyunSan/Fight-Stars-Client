@@ -33,7 +33,8 @@ public class ServerSession : PacketSession
         C_EnterRoom enterRoom = new C_EnterRoom { 
 			RoomId = gameServerInfo.roomId,
 			Password = gameServerInfo.password,
-			UserId = UserDataManager.Instance._userInfo.userId
+			UserId = UserDataManager.Instance._userInfo.userId,
+            Nickname = UserDataManager.Instance._userInfo.nickname,
         };
 		NetworkManager.Instance.Send(enterRoom);
     }

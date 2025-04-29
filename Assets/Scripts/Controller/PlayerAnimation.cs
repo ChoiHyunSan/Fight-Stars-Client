@@ -1,93 +1,84 @@
-using Spine;
-using Spine.Unity;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
+using Spine.Unity;
+using Spine;
 
 public class PlayerAnimationFSM : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private SkeletonAnimation skeletonAnimation;
-    private PlayerState currentState = PlayerState.Idle;
-    private bool isAttacking = false;
+    public GameObject attackEffectPrefab;
 
-    private void Start()
+    private Rigidbody2D _rb;
+    private SkeletonAnimation _skeletonAnimation;
+
+    private PlayerState _currentState = PlayerState.Idle;
+    private bool _isAttacking = false;
+
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        // 부모인 Physics에서 Rigidbody2D 찾아오기
+        _rb = transform.parent.Find("Physics")?.GetComponent<Rigidbody2D>();
+        if (_rb == null) Debug.LogError("Rigidbody2D not found under 'Physics'");
+
+        _skeletonAnimation = GetComponent<SkeletonAnimation>();
     }
 
     private void Update()
     {
-        if (!isAttacking) // 공격 중에는 이동 상태 업데이트를 잠깐 멈춤
-        {
-            Vector2 velocity = rb.velocity;
-            if (velocity.magnitude > 0.01f)
-            {
-                ChangeState(PlayerState.Move);
+        if (_isAttacking) return;
 
-                // 이동 방향 반전
-                if (velocity.x > 0)
-                    skeletonAnimation.Skeleton.ScaleX = 1f;
-                else if (velocity.x < 0)
-                    skeletonAnimation.Skeleton.ScaleX = -1f;
-            }
-            else
-            {
-                ChangeState(PlayerState.Idle);
-            }
+        Vector2 velocity = _rb.velocity;
+
+        if (velocity.magnitude > 0.05f)
+        {
+            ChangeState(PlayerState.Move);
+
+            if (velocity.x > 0)
+                _skeletonAnimation.Skeleton.ScaleX = 1f;
+            else if (velocity.x < 0)
+                _skeletonAnimation.Skeleton.ScaleX = -1f;
+        }
+        else
+        {
+            ChangeState(PlayerState.Idle);
         }
     }
 
     private void ChangeState(PlayerState newState)
     {
-        if (currentState == newState)
-            return;
+        if (_currentState == newState) return;
 
-        currentState = newState;
+        _currentState = newState;
 
         switch (newState)
         {
             case PlayerState.Idle:
-                skeletonAnimation.AnimationState.SetAnimation(0, "Idle", true);
+                _skeletonAnimation.AnimationState.SetAnimation(0, "Idle", true);
                 break;
             case PlayerState.Move:
-                skeletonAnimation.AnimationState.SetAnimation(0, "Run", true);
+                _skeletonAnimation.AnimationState.SetAnimation(0, "Run", true);
                 break;
             case PlayerState.Attack:
-                skeletonAnimation.AnimationState.SetAnimation(0, "Attack", false);
-                skeletonAnimation.AnimationState.AddAnimation(0, "Idle", true, 0f); // 공격 끝나면 Idle 복귀
+                _skeletonAnimation.AnimationState.SetAnimation(0, "Attack", false);
+                _skeletonAnimation.AnimationState.AddAnimation(0, "Idle", true, 0f);
                 break;
         }
     }
 
     public void PlayAttack()
     {
-        Debug.Log("Attack Animation Triggered!");
+        if (_isAttacking) return;
 
-        if (isAttacking)
-            return;
+        _isAttacking = true;
+        _skeletonAnimation.AnimationState.SetAnimation(1, "Attack", false);
 
-        isAttacking = true;
-
-        // 상체(Track 1)에 Attack 애니메이션만 재생 (Loop = false)
-        skeletonAnimation.AnimationState.SetAnimation(1, "Attack", false);
-
-        // 상체 공격 애니 끝나면 Track 1 비워서 걷기만 남게 함
-        TrackEntry attackEntry = skeletonAnimation.AnimationState.GetCurrent(1);
+        TrackEntry attackEntry = _skeletonAnimation.AnimationState.GetCurrent(1);
         if (attackEntry != null)
         {
-            attackEntry.Complete += entry =>
+            attackEntry.Complete += _ =>
             {
-                skeletonAnimation.AnimationState.ClearTrack(1); // 공격 끝나면 상체 애니 지워줌
-                isAttacking = false;
+                _skeletonAnimation.AnimationState.ClearTrack(1);
+                _isAttacking = false;
             };
         }
-    }
 
-    private IEnumerator AttackEndCoroutine()
-    {
-        yield return new WaitForSeconds(0.5f); // 공격 애니메이션 길이에 맞게
-        isAttacking = false;
     }
 }
