@@ -23,7 +23,7 @@ public class PlayerFactory : MonoBehaviour
     [Header("Data")]
     public CharacterDatabase characterDatabase;
 
-    public GameObject CreatePlayer(int playerId, int characterId, int skinId, Vector2 spawnPosition)
+    public GameObject CreatePlayer(int playerId, int characterId, int skinId, string nickname, Vector2 spawnPosition)
     {
         var charData = characterDatabase.GetCharacterData(characterId, skinId);
         if (charData == null)
@@ -48,11 +48,24 @@ public class PlayerFactory : MonoBehaviour
             animationFSM.attackEffectPrefab = charData.attackEffectPrefab;
         }
 
-        // 컨트롤러 부착
-        if (UserDataManager.Instance._userInfo.userId == playerId)
+        // PlayerInfo 설정
+        var playerInfo = player.GetComponent<PlayerInfo>();
+        if(playerInfo != null)
+        { 
+            playerInfo.nickname = nickname;
+        }
+
+        // 컨트롤러 부착 & MatchManager 설정
+        if (UserDataManager.Instance._userInfo.userId == playerId) 
+        {
             player.AddComponent<MyPlayerController>();
+            MatchManager.Instance.myPlayer = player;
+        }
         else
+        {
             player.AddComponent<NetworkPlayerController>();
+            MatchManager.Instance.otherPlayers.Add(player);
+        }
 
         return player;
     }

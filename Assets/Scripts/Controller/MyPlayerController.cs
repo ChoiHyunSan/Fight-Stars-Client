@@ -7,6 +7,8 @@ public class MyPlayerController : PlayerController
 
     private Vector2 _previousInput;
 
+    private bool _controllFlag = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -15,6 +17,11 @@ public class MyPlayerController : PlayerController
 
     void Update()
     {
+        if (!_controllFlag)
+        { 
+            return;
+        }
+
 #if UNITY_EDITOR || UNITY_STANDALONE
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -24,6 +31,11 @@ public class MyPlayerController : PlayerController
 #endif
 
         HandleInput();
+    }
+
+    public void ActiveControll()
+    {
+        _controllFlag = true;
     }
 
     void HandleInput()

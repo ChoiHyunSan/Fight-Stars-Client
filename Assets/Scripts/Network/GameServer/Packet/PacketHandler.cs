@@ -3,6 +3,7 @@ using Google.Protobuf.Protocol;
 using ServerCore;
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 class PacketHandler
 {
@@ -12,6 +13,12 @@ class PacketHandler
         ServerSession serverSession = session as ServerSession;
         if (enterRoom == null || serverSession == null)
             return;
+
+        if(enterRoom.EnterResult != S_EnterRoom.Types.EnterResult.Success)
+        {
+            Debug.LogError("Failed to enter room: " + enterRoom.EnterResult.ToString());
+            return;
+        }
 
         // Handle the S_EnterRoom packet
         Debug.Log("S_EnterRoomHandler called with message: " + enterRoom.ToString());
@@ -25,10 +32,10 @@ class PacketHandler
             {
                 GameObject player = playerFactory.CreatePlayer(
                     info.UserId,
-                    0 /* 일단 하드코딩 */,
+                    info.CharacterId,
                     info.SkinId,
-                    new Vector2 { x = info.SpawnPos.X, y = info.SpawnPos.Y }
-                    );
+                    info.Nickname,
+                    new Vector2 { x = info.SpawnPos.X, y = info.SpawnPos.Y });
                 if (player == null)
                 {
                     enterSuccess = false;    
@@ -52,5 +59,7 @@ class PacketHandler
             return;
 
         Debug.Log("S_ReadyCompleteGameHandler called with message: " + enterRoom.ToString());
+
+        MatchManager.Instance.StartGame();
     }
 }
