@@ -10,6 +10,8 @@ public class NetworkManager : MonoBehaviour
 {
     public static NetworkManager Instance { get; private set; }
 
+    public bool IsConnected = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,8 +39,6 @@ public class NetworkManager : MonoBehaviour
             Action<PacketSession, IMessage> handler = PacketManager.Instance.GetPacketHandler(packet.Id);
             if (handler != null)
                 handler.Invoke(_session, packet.Message);
-
-            Debug.Log($"Packet Id: {packet.Id}, Message: {packet.Message.ToString()}");
         }
     }
 
@@ -51,6 +51,11 @@ public class NetworkManager : MonoBehaviour
 
     public void Send(IMessage message)
     {
+        if(IsConnected == false)
+        {
+            return;
+        }
+
         _session.Send(message);
     }
 

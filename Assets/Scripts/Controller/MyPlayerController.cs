@@ -1,3 +1,4 @@
+using Google.Protobuf.Protocol;
 using UnityEngine;
 
 public class MyPlayerController : PlayerController
@@ -33,6 +34,11 @@ public class MyPlayerController : PlayerController
         HandleInput();
     }
 
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+
     public void ActiveControll()
     {
         _controllFlag = true;
@@ -44,15 +50,29 @@ public class MyPlayerController : PlayerController
 
         if ((currentInput - _previousInput).sqrMagnitude > 0.01f)
         {
+            // 움직임이 바뀜
             SendMoveCommandToServer(currentInput.normalized);
             Debug.Log($"Input: {currentInput}");
             _previousInput = currentInput;
+        }
+        else if (currentInput.sqrMagnitude <= 0.01f && _previousInput.sqrMagnitude > 0.01f)
+        {
+            // 입력이 사라짐(멈춤) -> 정지 패킷 전송
+            SendMoveCommandToServer(Vector2.zero);
+            Debug.Log("Stop Input sent");
+            _previousInput = Vector2.zero;
         }
     }
 
     void SendMoveCommandToServer(Vector2 dir)
     {
-        // TODO: 네트워크 모듈에 입력 방향 전송
+        C_Move movePacket = new C_Move
+        {
+            UserId = UserDataManager.Instance._userInfo.userId,
+            Dx = dir.x,
+            Dy = dir.y
+        };
+        NetworkManager.Instance.Send(movePacket);
     }
 
     void SendAttackCommandToServer()

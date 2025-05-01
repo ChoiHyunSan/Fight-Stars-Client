@@ -1,6 +1,7 @@
 using UnityEngine;
 using Spine.Unity;
 using Spine;
+using System;
 
 public class PlayerAnimationFSM : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerAnimationFSM : MonoBehaviour
 
     private PlayerState _currentState = PlayerState.Idle;
     private bool _isAttacking = false;
+    private Vector2 _velocity = Vector2.zero;
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class PlayerAnimationFSM : MonoBehaviour
     {
         if (_isAttacking) return;
 
-        Vector2 velocity = _rb.velocity;
+        Vector2 velocity = _velocity;
 
         if (velocity.magnitude > 0.05f)
         {
@@ -80,5 +82,10 @@ public class PlayerAnimationFSM : MonoBehaviour
             };
         }
 
+    }
+
+    public void SetVelocity(Vector2 newVelocity)
+    {
+        _velocity = newVelocity;
     }
 }

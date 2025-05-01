@@ -23,6 +23,8 @@ public class ServerSession : PacketSession
 	{
 		Debug.Log($"OnConnected : {endPoint}");
 
+        NetworkManager.Instance.IsConnected = true;
+
         PacketManager.Instance.CustomHandler = (s, m, i) =>
         {
             PacketQueue.Instance.Push(i, m);
@@ -42,7 +44,9 @@ public class ServerSession : PacketSession
 	public override void OnDisconnected(EndPoint endPoint)
 	{
 		Debug.Log($"OnDisconnected : {endPoint}");
-	}
+
+        NetworkManager.Instance.IsConnected = false;
+    }
 
 	public override void OnRecvPacket(ArraySegment<byte> buffer)
 	{

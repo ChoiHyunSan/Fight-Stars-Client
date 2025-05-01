@@ -52,6 +52,7 @@ public class PlayerFactory : MonoBehaviour
         var playerInfo = player.GetComponent<PlayerInfo>();
         if(playerInfo != null)
         { 
+            playerInfo.userId = playerId;
             playerInfo.nickname = nickname;
         }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     protected Vector2 _targetPosition;
     protected Vector2 _currentVelocity;
 
-    protected bool isServerUpdateReceived = false;
+    public bool isServerUpdateReceived = false;
 
     protected virtual void Awake()
     {
@@ -24,23 +25,25 @@ public class PlayerController : MonoBehaviour
         if (_playerAnimationFSM == null) Debug.LogError("PlayerAnimationFSM not found under 'Visual'");
     }
 
-    protected virtual void FixedUpdate()
+    public virtual void FixedUpdate()
     {
-        if (!isServerUpdateReceived) return;
+        if (!isServerUpdateReceived) { 
+            return;
+        }
 
-        _rb.position = Vector2.Lerp(_rb.position, _targetPosition, Time.fixedDeltaTime * smoothingFactor);
-        _rb.velocity = _currentVelocity;
-    }
-
-    public virtual void ApplyServerMovement(Vector2 newPosition, Vector2 newVelocity)
-    {
-        _targetPosition = newPosition;
-        _currentVelocity = newVelocity;
-        isServerUpdateReceived = true;
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * 10f);
     }
 
     public virtual void Attack()
     {
         _playerAnimationFSM?.PlayAttack();
+    }
+
+    public void SetPosition(Vector3 newPosition, Vector2 newVelocity)
+    {
+        _targetPosition = newPosition;
+        Debug.Log($"SetPosition: {_targetPosition}");
+
+        _playerAnimationFSM.SetVelocity(newVelocity);
     }
 }

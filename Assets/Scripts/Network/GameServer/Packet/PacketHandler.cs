@@ -62,4 +62,16 @@ class PacketHandler
 
         MatchManager.Instance.StartGame();
     }
+
+    public static void S_PositionUpdateHandler(PacketSession session, IMessage message)
+    {
+        S_PositionUpdate positionUpdate = message as S_PositionUpdate;
+        ServerSession serverSession = session as ServerSession;
+        if (positionUpdate == null || serverSession == null)
+            return;
+
+        Debug.Log("S_PositionUpdateHandler called with message: " + positionUpdate.ToString());
+
+        MatchManager.Instance.UpdatePosition(positionUpdate.PlayerPosUpdates);
+    }
 }
