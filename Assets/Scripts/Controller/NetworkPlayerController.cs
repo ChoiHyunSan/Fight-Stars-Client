@@ -14,12 +14,7 @@ public class NetworkPlayerController : PlayerController
 
     public override void FixedUpdate()
     {
-        if (!isServerUpdateReceived) return;
-
-        // 보간을 사용하여 부드러운 이동 처리
-        float t = Mathf.Clamp01((Time.time - _lastSyncTime) * smoothingFactor);
-        _rb.position = Vector2.Lerp(_rb.position, _lastReceivedPosition, t);
-        _rb.velocity = _lastReceivedVelocity;
+        base.FixedUpdate();
     }
 
     public override void Attack()

@@ -26,7 +26,12 @@ public class MultiplayersBuildAndRun
     static void PerformWin64Build(int playerCount)
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
-        for(int i = 0; i < playerCount; i++)
+
+        PlayerSettings.defaultScreenWidth = 1280;
+        PlayerSettings.defaultScreenHeight = 720;
+        PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
+
+        for (int i = 0; i < playerCount; i++)
         {
             string buildPath = $"Builds/Win64/FightStars/{GetProjectName()}_{i + 1}.exe";
             BuildPipeline.BuildPlayer(GetScenePaths(), buildPath, BuildTarget.StandaloneWindows64, BuildOptions.AutoRunPlayer);

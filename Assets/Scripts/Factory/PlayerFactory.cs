@@ -61,6 +61,8 @@ public class PlayerFactory : MonoBehaviour
         {
             player.AddComponent<MyPlayerController>();
             MatchManager.Instance.myPlayer = player;
+            Camera.main.transform.SetParent(player.transform);
+            Camera.main.transform.localPosition = new Vector3(0, 0, -10);
         }
         else
         {
