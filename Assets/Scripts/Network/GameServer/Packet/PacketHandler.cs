@@ -62,7 +62,9 @@ class PacketHandler
         if (enterRoom == null || serverSession == null)
             return;
 
+#if UNITY_EDITOR
         Debug.Log("S_ReadyCompleteGameHandler called with message: " + enterRoom.ToString());
+#endif
 
         MatchManager.Instance.StartGame();
     }
@@ -74,28 +76,60 @@ class PacketHandler
         if (positionUpdate == null || serverSession == null)
             return;
 
+#if UNITY_EDITOR
         Debug.Log("S_PositionUpdateHandler called with message: " + positionUpdate.ToString());
+#endif
 
         MatchManager.Instance.UpdatePosition(positionUpdate.PlayerPosUpdates);
     }
 
     public static void S_FireHandler(PacketSession session, IMessage message)
     {
-        throw new NotImplementedException();
+        S_Fire firePacket = message as S_Fire;
+        ServerSession serverSession = session as ServerSession;
+        if (firePacket == null || serverSession == null)
+            return;
+
+#if UNITY_EDITOR
+        Debug.Log($"S_FireHandler called with message: {firePacket.ToString()}");
+#endif
+        MatchManager.Instance.UpdateFire(firePacket);
     }
 
     public static void S_AttackHandler(PacketSession session, IMessage message)
     {
-        throw new NotImplementedException();
+        S_Attack attackPacket = message as S_Attack;
+        ServerSession serverSession = session as ServerSession;
+        if (attackPacket == null || serverSession == null)
+            return;
+
+#if UNITY_EDITOR
+        Debug.Log($"S_AttackHandler called with message: {attackPacket.ToString()}");
+#endif
+        MatchManager.Instance.UpdateAttack(attackPacket);
     }
 
     public static void S_DieHandler(PacketSession session, IMessage message)
     {
-        throw new NotImplementedException();
+        S_Die diePacket = message as S_Die;
+        ServerSession serverSession = session as ServerSession;
+        if (diePacket == null || serverSession == null)
+            return;
+#if UNITY_EDITOR
+        Debug.Log($"S_DieHandler called with message: {diePacket.ToString()}");
+#endif
+        MatchManager.Instance.UpdateDie(diePacket);
     }
 
     public static void S_RespawnHandler(PacketSession session, IMessage message)
     {
-        throw new NotImplementedException();
+        S_Respawn respawnPacket = message as S_Respawn;
+        ServerSession serverSession = session as ServerSession;
+        if (respawnPacket == null || serverSession == null)
+            return;
+#if UNITY_EDITOR
+        Debug.Log($"S_RespawnHandler called with message: {respawnPacket.ToString()}");
+#endif
+        MatchManager.Instance.UpdateRespawn(respawnPacket);
     }
 }

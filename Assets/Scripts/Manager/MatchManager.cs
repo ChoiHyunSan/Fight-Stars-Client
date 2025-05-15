@@ -1,5 +1,6 @@
 using Google.Protobuf.Collections;
 using Google.Protobuf.Protocol;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,5 +79,25 @@ public class MatchManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    internal void UpdateFire(S_Fire firePacket)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void UpdateAttack(S_Attack attackPacket)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void UpdateDie(S_Die diePacket)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void UpdateRespawn(S_Respawn respawnPacket)
+    {
+        throw new NotImplementedException();
     }
 }
