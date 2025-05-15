@@ -3,6 +3,7 @@ using Google.Protobuf.Protocol;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MatchManager : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class MatchManager : MonoBehaviour
 
     public GameObject myPlayer;
     public List<GameObject> otherPlayers = new List<GameObject>();
+    public Score score = new Score();
+
+    public class Score
+    {
+        int red;
+        int blue;
+    }
 
     public void StartGame()
     {
@@ -81,23 +89,65 @@ public class MatchManager : MonoBehaviour
         return null;
     }
 
-    internal void UpdateFire(S_Fire firePacket)
+    public void UpdateFire(S_Fire firePacket)
     {
-        throw new NotImplementedException();
+        // 투사체 생성
+
+        // 투사체의 속도 및 방향 설정
+
     }
 
-    internal void UpdateAttack(S_Attack attackPacket)
+    public void UpdateAttack(S_Attack attackPacket)
     {
-        throw new NotImplementedException();
+        // 피격당한 플레이어 찾기
+        GameObject targetPlayer = FindPlayerById(attackPacket.UserId);
+        if(targetPlayer == null)
+        {
+            return;
+        }
+
+        // 플레이어 체력 업데이트
+
+
+        // 투사체 삭제
+
+
     }
 
-    internal void UpdateDie(S_Die diePacket)
+    public void UpdateDie(S_Die diePacket)
     {
-        throw new NotImplementedException();
+        // 죽은 플레이어 찾기
+        GameObject deadPlayer = FindPlayerById(diePacket.DieUserId);
+        if (deadPlayer == null)
+        {
+            return;
+        }
+
+        // 플레이어 사망 처리
+
+
+        // 사망 애니메이션 재생
+    
+
+        // 스코어 갱신
     }
 
-    internal void UpdateRespawn(S_Respawn respawnPacket)
+    public void UpdateRespawn(S_Respawn respawnPacket)
     {
-        throw new NotImplementedException();
+        // 사망한 플레이어 찾기
+        GameObject respawnPlayer = FindPlayerById(respawnPacket.UserId);
+        if (respawnPlayer == null)
+        {
+            return;
+        }
+
+        // 플레이어 위치 초기화
+
+
+        // 플레이어 체력 초기화
+
+
+        // 플레이어 활성화
+
     }
 }

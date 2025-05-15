@@ -69,7 +69,7 @@ public class PlayerFactory : MonoBehaviour
 
             // 투사체 가이드 설정
             GameObject attackGuide = Instantiate(charData.attackGuidePrefab, player.transform);
-            attackGuide.transform.localPosition = new Vector3(0, 0, 0);
+            attackGuide.transform.localPosition = new Vector3(0, 2, 0);
             player.GetComponent<MyPlayerController>().attackGuide = attackGuide;
             player.GetComponent<MyPlayerController>().attackGuide.SetActive(false);
 

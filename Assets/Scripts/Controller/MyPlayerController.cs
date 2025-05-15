@@ -15,7 +15,7 @@ public class MyPlayerController : PlayerController
     private bool _attackFlag = false;
 
     public GameObject attackGuide;
-
+    private Vector2 _lastAttackDirection = Vector2.zero;
     protected override void Awake()
     {
         base.Awake();
@@ -39,14 +39,6 @@ public class MyPlayerController : PlayerController
         { 
             return;
         }
-
-#if UNITY_EDITOR || UNITY_STANDALONE
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SendAttackCommandToServer();
-            base.Attack();
-        }
-#endif
 
         HandleInput();
         HandleAttackGuide();
@@ -108,10 +100,14 @@ public class MyPlayerController : PlayerController
         NetworkManager.Instance.Send(movePacket);
     }
 
-    public void SendAttackCommandToServer(PointerEventData eventData)
+    public void SendAttackCommandToServer()
     {
-        // TODO: 네트워크 모듈에 공격 명령 전송
-
+        C_Fire firePacket = new C_Fire
+        {
+            Vx = _lastAttackDirection.x,
+            Vy = _lastAttackDirection.y,
+        };
+        NetworkManager.Instance.Send(firePacket);
     }
 
     public void DisplayGuide(bool v)
@@ -130,5 +126,10 @@ public class MyPlayerController : PlayerController
         Debug.Log("Attack called");
 #endif
         base.Attack();
+    }
+
+    public void CacheAttackDirection(Vector2 dir)
+    {
+        _lastAttackDirection = dir;
     }
 }

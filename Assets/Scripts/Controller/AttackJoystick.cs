@@ -8,6 +8,7 @@ public class AttackJoystick : Joystick
         background.gameObject.SetActive(false);
     }
 
+
     private MyPlayerController playerController;
 
     public void SetPlayerController(MyPlayerController controller)
@@ -28,6 +29,17 @@ public class AttackJoystick : Joystick
         }
     }
 
+    public override void OnDrag(PointerEventData eventData)
+    {
+        base.OnDrag(eventData);
+
+        // 방향 갱신
+        if (playerController != null && Direction.sqrMagnitude > 0.01f)
+        {
+            playerController.CacheAttackDirection(Direction.normalized);
+        }
+    }
+
     public override void OnPointerUp(PointerEventData eventData)
     {
         background.gameObject.SetActive(false);
@@ -37,7 +49,7 @@ public class AttackJoystick : Joystick
         if (playerController != null)
         {
             playerController.DisplayGuide(false);
-            playerController.SendAttackCommandToServer(eventData);
+            playerController.SendAttackCommandToServer();
         }
     }
 }
