@@ -46,6 +46,9 @@ public class GameSceneManager : MonoBehaviour
             case SceneType.Matching:
                 SceneManager.LoadScene("MatchingPage");
                 break;
+            case SceneType.Shop:
+                SceneManager.LoadScene("ShopPage");
+                break;
             default:
 #if UNITY_EDITOR
                 Debug.LogError("Invalid scene type");

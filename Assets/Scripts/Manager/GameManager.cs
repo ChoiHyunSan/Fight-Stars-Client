@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Gamemode currentGamemode;
 
     [SerializeField]
-    public int currentCharacterId;
+    public int currentCharacterId = 1;
 
     [SerializeField]
     public GameServerInfo gameServerInfo;

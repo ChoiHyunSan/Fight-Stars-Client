@@ -1,19 +1,36 @@
 using Google.Protobuf.Protocol;
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MyPlayerController : PlayerController
 {
     [Header("Input Settings")]
     public Joystick movementJoystick;
+    public Joystick attackJoystick;
 
     private Vector2 _previousInput;
 
     private bool _controllFlag = false;
+    private bool _attackFlag = false;
+
+    public GameObject attackGuide;
 
     protected override void Awake()
     {
         base.Awake();
         movementJoystick = GameObject.Find("JoyStick_Move")?.GetComponent<Joystick>();
+        if (movementJoystick == null)
+        {
+            Debug.LogError("Joystick_Move not found");
+        }
+
+        attackJoystick = GameObject.Find("JoyStick_Attack")?.GetComponent<AttackJoystick>();
+        if (attackJoystick == null)
+        {
+            Debug.LogError("Joystick_Attack not found");
+        }
+        attackJoystick.GetComponent<AttackJoystick>().SetPlayerController(this);
     }
 
     void Update()
@@ -27,11 +44,27 @@ public class MyPlayerController : PlayerController
         if (Input.GetKeyDown(KeyCode.A))
         {
             SendAttackCommandToServer();
-            Attack();
+            base.Attack();
         }
 #endif
 
         HandleInput();
+        HandleAttackGuide();
+    }
+
+    private void HandleAttackGuide()
+    {
+        if(_attackFlag == false || attackJoystick == null)
+        {
+            return;
+        }
+
+        // TODO : 투사체 방향이 조이스틱 방향으로 가이드가 보이게 설정
+        Vector2 attackDirection = attackJoystick.Direction;
+
+        // 방향 계산
+        float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+        attackGuide.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     public override void FixedUpdate()
@@ -75,8 +108,27 @@ public class MyPlayerController : PlayerController
         NetworkManager.Instance.Send(movePacket);
     }
 
-    void SendAttackCommandToServer()
+    public void SendAttackCommandToServer(PointerEventData eventData)
     {
         // TODO: 네트워크 모듈에 공격 명령 전송
+
+    }
+
+    public void DisplayGuide(bool v)
+    {
+        // 공격 가이드 설정
+#if UNITY_EDITOR
+        Debug.Log($"DisplayGuide: {v}");
+#endif
+        _attackFlag = v;
+        attackGuide.SetActive(v); 
+    }
+
+    public void Attack(PointerEventData eventData)
+    {
+#if UNITY_EDITOR
+        Debug.Log("Attack called");
+#endif
+        base.Attack();
     }
 }

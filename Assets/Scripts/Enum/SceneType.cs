@@ -6,4 +6,5 @@ public enum SceneType
     Lobby,
     Gamemode,
     Matching,
+    Shop,
 }

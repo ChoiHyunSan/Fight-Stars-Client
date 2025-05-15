@@ -13,23 +13,63 @@ MonoBehaviour:
   m_Name: CharacterDatabase
   m_EditorClassIdentifier: 
   characterList:
-  - characterId: 0
-    skinId: 0
+  - characterId: 1
+    skinId: 1
+    profileImage: {fileID: 21300000, guid: 1ebe9d3ac5ce74f3589c006da297bdc7, type: 3}
     skeletonDataAsset: {fileID: 11400000, guid: da9143f532b4a4c38815cc37d6ef8cf9,
       type: 2}
     attackEffectPrefab: {fileID: 0}
-  - characterId: 0
-    skinId: 1
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}
+  - characterId: 1
+    skinId: 2
+    profileImage: {fileID: 21300000, guid: b6975c3de651f42babaed097a5f3312b, type: 3}
     skeletonDataAsset: {fileID: 11400000, guid: c2a17b7b5909f4ed191605a3b4cc1e5b,
       type: 2}
     attackEffectPrefab: {fileID: 0}
-  - characterId: 0
-    skinId: 2
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}
+  - characterId: 2
+    skinId: 3
+    profileImage: {fileID: 21300000, guid: b76446236559e4a7ebfbdc6519fa9d07, type: 3}
     skeletonDataAsset: {fileID: 11400000, guid: 0fcaed96a7c2144ceb6715823508f0ec,
       type: 2}
     attackEffectPrefab: {fileID: 0}
-  - characterId: 0
-    skinId: 3
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}
+  - characterId: 2
+    skinId: 4
+    profileImage: {fileID: 21300000, guid: d6e84deb03dd24e2da5dd58908ee11b2, type: 3}
     skeletonDataAsset: {fileID: 11400000, guid: eb8f315d45dd14b9197f590a6577069d,
       type: 2}
     attackEffectPrefab: {fileID: 0}
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}
+  - characterId: 3
+    skinId: 5
+    profileImage: {fileID: 21300000, guid: f3b7e31eb60b84b17870d0b5d926cfad, type: 3}
+    skeletonDataAsset: {fileID: 11400000, guid: eb8f315d45dd14b9197f590a6577069d,
+      type: 2}
+    attackEffectPrefab: {fileID: 0}
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}
+  - characterId: 3
+    skinId: 6
+    profileImage: {fileID: 21300000, guid: 88a1cbcfc07604b8bb6294fbbbcff649, type: 3}
+    skeletonDataAsset: {fileID: 11400000, guid: eb8f315d45dd14b9197f590a6577069d,
+      type: 2}
+    attackEffectPrefab: {fileID: 0}
+    attackProjectilePrefab: {fileID: 5103333290423320884, guid: 86938ea85aaedce42b75365c6edaa7de,
+      type: 3}
+    attackGuidePrefab: {fileID: 705600072872775406, guid: 52d86023adab4e54b83590cc6b2043f8,
+      type: 3}

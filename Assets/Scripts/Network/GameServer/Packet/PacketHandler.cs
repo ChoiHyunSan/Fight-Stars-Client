@@ -16,12 +16,16 @@ class PacketHandler
 
         if(enterRoom.EnterResult != S_EnterRoom.Types.EnterResult.Success)
         {
+#if UNITY_EDITOR
             Debug.LogError("Failed to enter room: " + enterRoom.EnterResult.ToString());
+#endif
             return;
         }
 
         // Handle the S_EnterRoom packet
+#if UNITY_EDITOR
         Debug.Log("S_EnterRoomHandler called with message: " + enterRoom.ToString());
+#endif
 
         bool enterSuccess = true;
 
@@ -73,5 +77,25 @@ class PacketHandler
         Debug.Log("S_PositionUpdateHandler called with message: " + positionUpdate.ToString());
 
         MatchManager.Instance.UpdatePosition(positionUpdate.PlayerPosUpdates);
+    }
+
+    public static void S_FireHandler(PacketSession session, IMessage message)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static void S_AttackHandler(PacketSession session, IMessage message)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static void S_DieHandler(PacketSession session, IMessage message)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static void S_RespawnHandler(PacketSession session, IMessage message)
+    {
+        throw new NotImplementedException();
     }
 }

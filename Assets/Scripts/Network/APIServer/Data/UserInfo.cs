@@ -13,6 +13,7 @@ public class UserInfo
     public UserStats stats;
     public List<UserInventory> inventory;
     public List<UserBrawler> brawlers;
+    public List<int> skins;   
 
     public void SetData(UserLoadDataResponse res)
     {
@@ -55,7 +56,37 @@ public class UserInfo
                 powerPoint = brawler.PowerPoint
             });
         }
+        skins = res.Skins.SkinIds;
 
+        OnUserInfoChanged?.Invoke();
+    }
+
+    public void UpdateGold(int newGold)
+    {
+        currency.gold = newGold;
+        OnUserInfoChanged?.Invoke();
+    }
+
+    public void UpdateGems(int newGems)
+    {
+        currency.gems = newGems;
+        OnUserInfoChanged?.Invoke();
+    }
+    public void AddBrawler(UserBrawlerDto brawler)
+    {
+        brawlers.Add(new UserBrawler
+        {
+            brawlerId = brawler.BrawlerId,
+            level = brawler.Level,
+            trophy = brawler.Trophy,
+            powerPoint = brawler.PowerPoint
+        });
+        OnUserInfoChanged?.Invoke();
+    }
+
+    public void UpdateSkin(int skinId)
+    {
+        skins.Add(skinId);
         OnUserInfoChanged?.Invoke();
     }
 }
@@ -94,4 +125,4 @@ public class UserBrawler
     public int level;
     public int trophy;
     public int powerPoint;
-}   
+}

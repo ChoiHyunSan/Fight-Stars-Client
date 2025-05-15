@@ -16,6 +16,7 @@ public class UserLoadDataResponse
     public UserStatsDto Stats { get; set; }
     public List<UserInventoryDto> Inventory { get; set; }
     public List<UserBrawlerDto> Brawlers { get; set; }
+    public UserSkinDto Skins { get; set; }
 }
 
 
@@ -49,4 +50,9 @@ public class UserBrawlerDto
     public int Level { get; set; }
     public int Trophy { get; set; }
     public int PowerPoint { get; set; }
+}
+
+public class UserSkinDto
+{
+    public List<int> SkinIds { get; set; } = new();
 }

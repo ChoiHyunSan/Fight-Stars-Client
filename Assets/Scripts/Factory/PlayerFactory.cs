@@ -38,6 +38,7 @@ public class PlayerFactory : MonoBehaviour
         // 외형 설정
         var skeleton = player.transform.Find("Visual").GetComponent<SkeletonAnimation>();
         skeleton.skeletonDataAsset = charData.skeletonDataAsset;
+        skeleton.initialSkinName = "S01";
         skeleton.Initialize(true);
 
         // 이펙트 프리팹 설정
@@ -61,8 +62,17 @@ public class PlayerFactory : MonoBehaviour
         {
             player.AddComponent<MyPlayerController>();
             MatchManager.Instance.myPlayer = player;
+
+            // 카메라 설정
             Camera.main.transform.SetParent(player.transform);
             Camera.main.transform.localPosition = new Vector3(0, 0, -10);
+
+            // 투사체 가이드 설정
+            GameObject attackGuide = Instantiate(charData.attackGuidePrefab, player.transform);
+            attackGuide.transform.localPosition = new Vector3(0, 0, 0);
+            player.GetComponent<MyPlayerController>().attackGuide = attackGuide;
+            player.GetComponent<MyPlayerController>().attackGuide.SetActive(false);
+
         }
         else
         {

@@ -43,7 +43,7 @@ public class LobbyUIController : MonoBehaviour
         settingButton.onClick.AddListener(OnSettingButtonClicked);
         stageButton.onClick.AddListener(OnStageButtonClicked);
         matchingButton.onClick.AddListener(OnMatchingButtonClicked);
-
+        shopButton.onClick.AddListener(OnShopButtonClicked);
     }
 
     private void OnSettingButtonClicked()
@@ -75,9 +75,8 @@ public class LobbyUIController : MonoBehaviour
     {
 #if UNITY_EDITOR
         Debug.Log("Stage button clicked");
-        GameSceneManager.Instance.LoadScene(SceneType.Gamemode);
 #endif
-
+        GameSceneManager.Instance.LoadScene(SceneType.Gamemode);
         // TODO : 현재 선택한 게임 모드가 표현되도록 처리
     }
 
@@ -87,5 +86,13 @@ public class LobbyUIController : MonoBehaviour
         Debug.Log("Matching button clicked");
 #endif
         GameSceneManager.Instance.LoadScene(SceneType.Matching);
+    }
+
+    private void OnShopButtonClicked()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Shop button clicked");
+#endif
+        GameSceneManager.Instance.LoadScene(SceneType.Shop);
     }
 }
