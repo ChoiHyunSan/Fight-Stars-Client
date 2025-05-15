@@ -37,6 +37,8 @@ class PacketManager
         _handler.Add((ushort)MsgId.SDie, PacketHandler.S_DieHandler);
         _onRecv.Add((ushort)MsgId.SRespawn, MakePacket<S_Respawn>);
         _handler.Add((ushort)MsgId.SRespawn, PacketHandler.S_RespawnHandler);
+        _onRecv.Add((ushort)MsgId.SDestroyProjectile, MakePacket<S_DestroyProjectile>);
+        _handler.Add((ushort)MsgId.SDestroyProjectile, PacketHandler.S_DestroyProjectileHandler);
     }
 
     public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

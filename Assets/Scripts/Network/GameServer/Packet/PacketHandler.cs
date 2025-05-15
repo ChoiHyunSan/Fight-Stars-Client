@@ -132,4 +132,17 @@ class PacketHandler
 #endif
         MatchManager.Instance.UpdateRespawn(respawnPacket);
     }
+
+    public static void S_DestroyProjectileHandler(PacketSession session, IMessage message)
+    {
+        S_DestroyProjectile destroyProjectilePacket = message as S_DestroyProjectile;
+        ServerSession serverSession = session as ServerSession;
+        if (destroyProjectilePacket == null || serverSession == null)
+            return;
+#if UNITY_EDITOR
+        Debug.Log($"S_DestroyProjectileHandler called with message: {destroyProjectilePacket.ToString()}");
+#endif
+
+        MatchManager.Instance.UpdateDestroyProjectile(destroyProjectilePacket);
+    }
 }

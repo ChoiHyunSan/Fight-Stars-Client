@@ -2,6 +2,7 @@ using Google.Protobuf.Collections;
 using Google.Protobuf.Protocol;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -28,6 +29,7 @@ public class MatchManager : MonoBehaviour
     public GameObject myPlayer;
     public List<GameObject> otherPlayers = new List<GameObject>();
     public Score score = new Score();
+    public List<GameObject> projectiles = new List<GameObject>();
 
     public class Score
     {
@@ -91,10 +93,25 @@ public class MatchManager : MonoBehaviour
 
     public void UpdateFire(S_Fire firePacket)
     {
+        Vector2 spawnPos = new Vector2(firePacket.X, firePacket.Y);
+        Vector2 direction = new Vector2(firePacket.Vx, firePacket.Vy);
+
         // 투사체 생성
+        GameObject projectile = ProjectileFactory.Instance.CreateProjectile(
+            firePacket.ProjectileInfo.Type,
+            firePacket.ProjectileInfo.ProjectileId,
+            spawnPos, 
+            direction,
+            firePacket.ProjectileInfo.Speed);
+        if(projectile == null)
+        {
+#if UNITY_EDITOR
+            Debug.LogError("Failed to create projectile.");
+#endif
+            return;
+        }
 
-        // 투사체의 속도 및 방향 설정
-
+        projectiles.Add(projectile);
     }
 
     public void UpdateAttack(S_Attack attackPacket)
@@ -149,5 +166,22 @@ public class MatchManager : MonoBehaviour
 
         // 플레이어 활성화
 
+    }
+
+    public void UpdateDestroyProjectile(S_DestroyProjectile destroyProjectilePacket)
+    {
+        int projectileId = destroyProjectilePacket.ProjectileId;
+        foreach(GameObject projectile in projectiles)
+        {
+            if (projectile.GetComponent<Projectile>()._id == projectileId)
+            {
+#if UNITY_EDITOR
+                Debug.Log($"Destroying projectile with ID: {projectileId}");
+#endif
+                Destroy(projectile);
+                projectiles.Remove(projectile);
+                break;
+            }
+        }
     }
 }

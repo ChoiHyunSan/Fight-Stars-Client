@@ -16,6 +16,7 @@ public class MyPlayerController : PlayerController
 
     public GameObject attackGuide;
     private Vector2 _lastAttackDirection = Vector2.zero;
+
     protected override void Awake()
     {
         base.Awake();
