@@ -38,7 +38,7 @@ class PacketHandler
                     info.UserId,
                     info.CharacterId,
                     info.SkinId,
-                    info.Nickname,
+                    info.Nickname,                  
                     new Vector2 { x = info.SpawnPos.X, y = info.SpawnPos.Y });
                 if (player == null)
                 {
@@ -80,7 +80,7 @@ class PacketHandler
         Debug.Log("S_PositionUpdateHandler called with message: " + positionUpdate.ToString());
 #endif
 
-        MatchManager.Instance.UpdatePosition(positionUpdate.PlayerPosUpdates);
+        MatchManager.Instance.OnUpdatePosition(positionUpdate.PlayerPosUpdates);
     }
 
     public static void S_FireHandler(PacketSession session, IMessage message)
@@ -93,7 +93,7 @@ class PacketHandler
 #if UNITY_EDITOR
         Debug.Log($"S_FireHandler called with message: {firePacket.ToString()}");
 #endif
-        MatchManager.Instance.UpdateFire(firePacket);
+        MatchManager.Instance.OnFire(firePacket);
     }
 
     public static void S_AttackHandler(PacketSession session, IMessage message)
@@ -118,7 +118,7 @@ class PacketHandler
 #if UNITY_EDITOR
         Debug.Log($"S_DieHandler called with message: {diePacket.ToString()}");
 #endif
-        MatchManager.Instance.UpdateDie(diePacket);
+        MatchManager.Instance.OnDie(diePacket);
     }
 
     public static void S_RespawnHandler(PacketSession session, IMessage message)
@@ -130,7 +130,7 @@ class PacketHandler
 #if UNITY_EDITOR
         Debug.Log($"S_RespawnHandler called with message: {respawnPacket.ToString()}");
 #endif
-        MatchManager.Instance.UpdateRespawn(respawnPacket);
+        MatchManager.Instance.OnRespawn(respawnPacket);
     }
 
     public static void S_DestroyProjectileHandler(PacketSession session, IMessage message)
@@ -143,6 +143,18 @@ class PacketHandler
         Debug.Log($"S_DestroyProjectileHandler called with message: {destroyProjectilePacket.ToString()}");
 #endif
 
-        MatchManager.Instance.UpdateDestroyProjectile(destroyProjectilePacket);
+        MatchManager.Instance.OnDestroyProjectile(destroyProjectilePacket);
+    }
+
+    public static void S_GameoverHandler(PacketSession session, IMessage message)
+    {
+        S_Gameover gameoverPacket = message as S_Gameover;
+        ServerSession serverSession = session as ServerSession;
+        if (gameoverPacket == null || serverSession == null)
+            return;
+#if UNITY_EDITOR
+        Debug.Log($"S_GameoverHandler called with message: {gameoverPacket.ToString()}");
+#endif
+        MatchManager.Instance.OnGameover(gameoverPacket);
     }
 }

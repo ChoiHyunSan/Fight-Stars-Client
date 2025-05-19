@@ -21,6 +21,8 @@ public class PlayerAnimationFSM : MonoBehaviour
         if (_rb == null) Debug.LogError("Rigidbody2D not found under 'Physics'");
 
         _skeletonAnimation = GetComponent<SkeletonAnimation>();
+
+        this.GetComponent<MeshRenderer>().sortingOrder = 2;
     }
 
     private void Update()
@@ -87,5 +89,10 @@ public class PlayerAnimationFSM : MonoBehaviour
     public void SetVelocity(Vector2 newVelocity)
     {
         _velocity = newVelocity;
+    }
+
+    public void SetAlpha(float v)
+    {
+        _skeletonAnimation.Skeleton.A = v;
     }
 }

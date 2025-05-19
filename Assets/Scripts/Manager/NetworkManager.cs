@@ -17,7 +17,6 @@ public class NetworkManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -51,7 +50,7 @@ public class NetworkManager : MonoBehaviour
 
     public void Send(IMessage message)
     {
-        if(IsConnected == false)
+        if (IsConnected == false)
         {
             return;
         }

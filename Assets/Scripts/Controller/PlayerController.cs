@@ -46,4 +46,29 @@ public class PlayerController : MonoBehaviour
 
         _playerAnimationFSM.SetVelocity(newVelocity);
     }
+
+    public void OnDead()
+    {
+        PlayerInfo playerInfo = gameObject.GetComponent<PlayerInfo>();
+        if (playerInfo != null)
+        {
+            playerInfo.UpdateHp(0);
+        }
+
+        // 투명하게 처리
+        _playerAnimationFSM.SetAlpha(0.0f);
+    }
+
+    public void OnRespawn()
+    {
+        // 플레이어 체력 초기화
+        PlayerInfo playerInfo = gameObject.GetComponent<PlayerInfo>();
+        if (playerInfo != null)
+        {
+            playerInfo.UpdateHp(playerInfo.maxHp);
+        }
+
+        // 불투명하게 처리
+        _playerAnimationFSM.SetAlpha(1.0f);
+    }
 }

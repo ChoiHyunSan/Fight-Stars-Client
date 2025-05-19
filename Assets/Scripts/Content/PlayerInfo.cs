@@ -11,8 +11,31 @@ public class PlayerInfo : MonoBehaviour
     public int maxHp;
     public int hp;
 
-    public void SetTeam(string team)
+    public HpBar hpBar;
+
+    public void SetTeam(int playerId)
     {
-        this.team = string.Equals(team, "Red") ? Team.Red : Team.Blue;
+        this.team = playerId % 2 == 0 ? Team.Red : Team.Blue;
+
+        if (team == Team.Red)
+        {
+            hpBar.fillImage.color = Color.red;
+        }
+        else
+        {
+            hpBar.fillImage.color = Color.blue;
+        }
+        hpBar.SetNickname(nickname);
+    }
+
+    public void UpdateHp(int newHp)
+    {
+        hp = newHp;
+        if(hp < 0)
+        {
+            hp = 0;
+        }
+
+        hpBar.SetRatio((float)hp / maxHp);
     }
 }

@@ -1,8 +1,10 @@
 using Google.Protobuf.Collections;
 using Google.Protobuf.Protocol;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -33,8 +35,8 @@ public class MatchManager : MonoBehaviour
 
     public class Score
     {
-        int red;
-        int blue;
+        public int red;
+        public int blue;
     }
 
     public void StartGame()
@@ -48,9 +50,10 @@ public class MatchManager : MonoBehaviour
         }
 
         // 관련 UI나 상태를 업데이트
+        GameObject.Find("Timer").GetComponent<TimerUI>().StartGame(100f);
     }
 
-    public void UpdatePosition(RepeatedField<S_PositionUpdate.Types.PlayerPosUpdate> playerPosUpdates)
+    public void OnUpdatePosition(RepeatedField<S_PositionUpdate.Types.PlayerPosUpdate> playerPosUpdates)
     {
         foreach (var playerPosUpdate in playerPosUpdates)
         {
@@ -91,7 +94,7 @@ public class MatchManager : MonoBehaviour
         return null;
     }
 
-    public void UpdateFire(S_Fire firePacket)
+    public void OnFire(S_Fire firePacket)
     {
         Vector2 spawnPos = new Vector2(firePacket.X, firePacket.Y);
         Vector2 direction = new Vector2(firePacket.Vx, firePacket.Vy);
@@ -124,14 +127,14 @@ public class MatchManager : MonoBehaviour
         }
 
         // 플레이어 체력 업데이트
-
-
-        // 투사체 삭제
-
-
+        PlayerInfo playerInfo = targetPlayer.GetComponent<PlayerInfo>();
+        if(playerInfo != null)
+        {
+            playerInfo.UpdateHp(attackPacket.Hp);
+        }
     }
 
-    public void UpdateDie(S_Die diePacket)
+    public void OnDie(S_Die diePacket)
     {
         // 죽은 플레이어 찾기
         GameObject deadPlayer = FindPlayerById(diePacket.DieUserId);
@@ -141,15 +144,40 @@ public class MatchManager : MonoBehaviour
         }
 
         // 플레이어 사망 처리
+#if UNITY_EDITOR
+        Debug.Log($"Player {diePacket.DieUserId} has died.");
+#endif
+        // 내 플레이어가 죽은 경우엔 그 자리에 반투명으로 처리하고 조작하지 못하도록 세팅
+        if (myPlayer != null && deadPlayer == myPlayer)
+        {
+            // 사망 처리
+            deadPlayer.GetComponent<MyPlayerController>().DeactiveControll();
+        }
+        deadPlayer.GetComponent<PlayerController>().OnDead();
 
 
-        // 사망 애니메이션 재생
-    
-
-        // 스코어 갱신
+        UpdateScore(diePacket.Score.Red, diePacket.Score.Blue);
     }
 
-    public void UpdateRespawn(S_Respawn respawnPacket)
+    public TMP_Text redScore;
+    public TMP_Text blueScore;
+    private void UpdateScore(int red, int blue)
+    {
+        // 스코어 갱신
+        score.red = red;
+        score.blue = blue;
+
+        // UI 업데이트
+        if(redScore == null || blueScore == null)
+        { 
+            redScore = GameObject.Find("Red").GetComponent<TMP_Text>();
+            blueScore = GameObject.Find("Blue").GetComponent<TMP_Text>();
+        }
+        redScore.text = score.red.ToString();
+        blueScore.text = score.blue.ToString();
+    }
+
+    public void OnRespawn(S_Respawn respawnPacket)
     {
         // 사망한 플레이어 찾기
         GameObject respawnPlayer = FindPlayerById(respawnPacket.UserId);
@@ -159,16 +187,15 @@ public class MatchManager : MonoBehaviour
         }
 
         // 플레이어 위치 초기화
-
-
-        // 플레이어 체력 초기화
-
-
-        // 플레이어 활성화
-
+        respawnPlayer.transform.position = new Vector3(respawnPacket.SpawnPos.X, respawnPacket.SpawnPos.Y, 0);
+        if(myPlayer != null && respawnPlayer == myPlayer)
+        {
+            respawnPlayer.GetComponent<MyPlayerController>().ActiveControll();
+        }
+        respawnPlayer.GetComponent<PlayerController>().OnRespawn();
     }
 
-    public void UpdateDestroyProjectile(S_DestroyProjectile destroyProjectilePacket)
+    public void OnDestroyProjectile(S_DestroyProjectile destroyProjectilePacket)
     {
         int projectileId = destroyProjectilePacket.ProjectileId;
         foreach(GameObject projectile in projectiles)
@@ -182,6 +209,22 @@ public class MatchManager : MonoBehaviour
                 projectiles.Remove(projectile);
                 break;
             }
+        }
+    }
+
+    public void OnGameover(S_Gameover gameoverPacket)
+    {
+        // 게임 종료 팝업 띄우기
+        GameObject popup = GameObject.Find("Popup_Result");
+        if(popup != null)
+        {
+            popup.SetActive(true);
+        }
+
+        GameResultUI resultUI = popup.GetComponent<GameResultUI>();
+        if (resultUI != null)
+        {
+            resultUI.ShowResult(gameoverPacket.RedScore, gameoverPacket.BlueScore);
         }
     }
 }

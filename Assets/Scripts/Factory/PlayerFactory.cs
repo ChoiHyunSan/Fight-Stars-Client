@@ -55,7 +55,16 @@ public class PlayerFactory : MonoBehaviour
         { 
             playerInfo.userId = playerId;
             playerInfo.nickname = nickname;
+
+            // TODO : 캐릭터 정보를 가져와서 설정
+            int maxHp = charData.maxHp != 0 ? charData.maxHp : 100;
+            playerInfo.maxHp = maxHp;
+            playerInfo.hp = maxHp;
+
+            // 플레이어 팀 설정
+            playerInfo.SetTeam(playerId);
         }
+
 
         // 컨트롤러 부착 & MatchManager 설정
         if (UserDataManager.Instance._userInfo.userId == playerId) 

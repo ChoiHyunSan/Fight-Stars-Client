@@ -11,4 +11,7 @@ public class CharacterData
     public GameObject attackEffectPrefab;
     public GameObject attackProjectilePrefab;
     public GameObject attackGuidePrefab;
+
+    // 게임 컨텐츠 관련 수치 데이터
+    public int maxHp = 100;
 }

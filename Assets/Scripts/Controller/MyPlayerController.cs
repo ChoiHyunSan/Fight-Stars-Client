@@ -68,6 +68,17 @@ public class MyPlayerController : PlayerController
     public void ActiveControll()
     {
         _controllFlag = true;
+
+        movementJoystick.enabled = true;
+        attackJoystick.enabled = true;
+    }
+
+    public void DeactiveControll()
+    {
+        _controllFlag = false;
+
+        movementJoystick.enabled = false;
+        attackJoystick.enabled = false;
     }
 
     void HandleInput()
