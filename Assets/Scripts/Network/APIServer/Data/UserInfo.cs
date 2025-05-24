@@ -1,3 +1,4 @@
+using Google.Protobuf.Protocol;
 using System;
 using System.Collections.Generic;
 
@@ -87,6 +88,18 @@ public class UserInfo
     public void UpdateSkin(int skinId)
     {
         skins.Add(skinId);
+        OnUserInfoChanged?.Invoke();
+    }
+    public void UpdateDataByGameResult(S_Gameover.Types.ResultData resultData)
+    {
+        currency.gold = resultData.Gold;
+        currency.energy = resultData.Energy;
+        currency.exp = resultData.Exp;
+        stats.level = resultData.Level;
+        stats.winCount = resultData.WinCount;
+        stats.loseCount = resultData.LoseCount;
+        stats.totalPlayCount = resultData.TotalPlayCount;
+
         OnUserInfoChanged?.Invoke();
     }
 }

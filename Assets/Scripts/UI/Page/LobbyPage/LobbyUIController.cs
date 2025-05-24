@@ -16,6 +16,8 @@ public class LobbyUIController : MonoBehaviour
     public Button inventoryButton;
     public Button brawlerButton;
 
+    public CharacterDatabase characterDatabase;
+    public Image characterImage;
     public static LobbyUIController Instance { get; private set; }
 
     void Awake()
@@ -44,6 +46,10 @@ public class LobbyUIController : MonoBehaviour
         stageButton.onClick.AddListener(OnStageButtonClicked);
         matchingButton.onClick.AddListener(OnMatchingButtonClicked);
         shopButton.onClick.AddListener(OnShopButtonClicked);
+
+        characterImage.sprite = characterDatabase.GetCharacterData(
+            GameManager.Instance.currentCharacterId,
+            GameManager.Instance.currentSkinId).profileImage;
     }
 
     private void OnSettingButtonClicked()

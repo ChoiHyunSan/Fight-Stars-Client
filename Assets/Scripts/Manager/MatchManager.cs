@@ -221,6 +221,17 @@ public class MatchManager : MonoBehaviour
             popup.SetActive(true);
         }
 
+        // 클라이언트 데이터 정보를 갱신
+        S_Gameover.Types.ResultData resultData = gameoverPacket.ResultData;
+        if(resultData == null)
+        {
+#if UNITY_EDITOR
+            Debug.LogError("Gameover packet does not contain result data.");
+#endif
+            return;
+        }
+        UserDataManager.Instance.UpdateData(resultData);
+
         GameResultUI resultUI = popup.GetComponent<GameResultUI>();
         if (resultUI != null)
         {

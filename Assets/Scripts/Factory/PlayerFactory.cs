@@ -28,9 +28,12 @@ public class PlayerFactory : MonoBehaviour
         var charData = characterDatabase.GetCharacterData(characterId, skinId);
         if (charData == null)
         {
-            Debug.LogError($"CharacterData not found: {characterId}");
+            Debug.LogError($"CharacterData not found: {characterId}");  
             return null;
         }
+#if UNITY_EDITOR
+        Debug.Log($"CharacterData found: {charData.characterId}, {charData.skinId}");
+#endif
 
         GameObject player = Instantiate(characterBasePrefab, spawnPosition, Quaternion.identity);
         player.name = $"Player_{playerId}";
@@ -38,7 +41,7 @@ public class PlayerFactory : MonoBehaviour
         // 외형 설정
         var skeleton = player.transform.Find("Visual").GetComponent<SkeletonAnimation>();
         skeleton.skeletonDataAsset = charData.skeletonDataAsset;
-        skeleton.initialSkinName = "S01";
+        skeleton.initialSkinName = charData.skinName;
         skeleton.Initialize(true);
 
         // 이펙트 프리팹 설정

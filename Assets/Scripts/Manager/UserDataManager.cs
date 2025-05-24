@@ -1,3 +1,4 @@
+using Google.Protobuf.Protocol;
 using System;
 using System.Collections;
 using System.IO;
@@ -88,5 +89,13 @@ public class UserDataManager : MonoBehaviour
     private void SetUserData(UserLoadDataResponse res)
     {
         _userInfo.SetData(res);
+    }
+
+    public void UpdateData(S_Gameover.Types.ResultData resultData)
+    {
+#if UNITY_EDITOR
+        Debug.Log("Updating user data with game result");
+#endif
+        _userInfo.UpdateDataByGameResult(resultData);
     }
 }

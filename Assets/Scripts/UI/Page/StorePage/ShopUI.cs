@@ -1,5 +1,6 @@
 using Spine.Unity;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ public class ShopUI : MonoBehaviour
     public GameObject skinSlotPrefabs;
 
     public CharacterDatabase characterDatabase;
+
+    // UI 갱신을 위해 생성한 Prefabs를 저장하는 변수
+    List<GameObject> characterSlots = new List<GameObject>();
+    List<GameObject> skinSlots = new List<GameObject>();
 
     void Start()
     {
@@ -54,15 +59,16 @@ public class ShopUI : MonoBehaviour
         // 프리팹 생성 후, Content 하위에 추가
         foreach(var skin in shopData.Skins)
         {
-            if(skin.zemPrice == 0)
-            {
-                continue;
-            }
+            //if(skin.zemPrice == 0)
+            //{
+            //    continue;
+            //}
 
             GameObject skinSlot = Instantiate(skinSlotPrefabs, skinScrollRectContent.transform);
             SkinSlot slot = skinSlot.GetComponent<SkinSlot>();
             Sprite profileImage = characterDatabase.GetSkinImage(skin.Id);
             slot.Initialize(skin, profileImage);
+            skinSlots.Add(skinSlot);
         }
     }
 
@@ -76,6 +82,28 @@ public class ShopUI : MonoBehaviour
             CharacterSlot slot = characterSlot.GetComponent<CharacterSlot>();
             Sprite profileImage = characterDatabase.GetProfileImage(brawler.Id);
             slot.Initialize(brawler, profileImage);
+            characterSlots.Add(characterSlot);
+        }
+    }
+
+    public void UpdateSlot()
+    {
+        foreach (var slot in characterSlots)
+        {
+            CharacterSlot characterSlot = slot.GetComponent<CharacterSlot>();
+            if (characterSlot != null)
+            {
+                characterSlot.RefreshUI();
+            }
+        }
+
+        foreach (var slot in skinSlots)
+        {
+            SkinSlot skinSlot = slot.GetComponent<SkinSlot>();
+            if (skinSlot != null)
+            {
+                skinSlot.RefreshUI();
+            }
         }
     }
 

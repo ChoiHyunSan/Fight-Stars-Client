@@ -34,6 +34,8 @@ public class GamemodeUI : MonoBehaviour
         backButton.onClick.AddListener(OnBackButtonClicked);
         Mode01Button.onClick.AddListener(OnMode01ButtonClicked);
         Mode02Button.onClick.AddListener(OnMode02ButtonClicked);
+
+        Mode02Button.interactable = true;
     }
 
     private void OnMode02ButtonClicked()

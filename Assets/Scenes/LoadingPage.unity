@@ -523,6 +523,10 @@ MonoBehaviour:
       currentTrophy: 0
     inventory: []
     brawlers: []
+    skins: 
+  _shopData:
+    Brawlers: []
+    Skins: []
 --- !u!1 &686770697
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGamemode: 0
-  currentCharacterId: 0
+  currentCharacterId: 1
+  currentSkinId: 1
 --- !u!1 &704563238
 GameObject:
   m_ObjectHideFlags: 0

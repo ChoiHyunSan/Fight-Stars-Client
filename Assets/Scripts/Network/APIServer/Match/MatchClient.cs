@@ -12,8 +12,7 @@ public class MatchClient : MonoBehaviour
 
         // 우선 캐릭터 ID와 스킨 ID를 하드코딩 
         int characterId = GameManager.Instance.currentCharacterId;
-        int skinId = 1;
-        characterId = 1;
+        int skinId = GameManager.Instance.currentSkinId;
 
         string mode = GamemodeHelper.GetGamemodeName(GameManager.Instance.currentGamemode);
 
@@ -46,7 +45,7 @@ public class MatchClient : MonoBehaviour
                 UserId = userId,
                 CharacterId = characterId,
                
-                SkinId = 1, // 하드코딩된 스킨 ID
+                SkinId = skinId,
                 Mode = mode
             };
             var json = JsonUtility.ToJson(request);

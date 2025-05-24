@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int currentCharacterId = 1;
 
     [SerializeField]
+    public int currentSkinId = 1;
+
+    [SerializeField]
     public GameServerInfo gameServerInfo;
 
     private void Awake()

@@ -6,6 +6,7 @@ public class CharacterData
 {
     public int characterId;
     public int skinId;
+    public string skinName;
     public Sprite profileImage;
     public SkeletonDataAsset skeletonDataAsset;
     public GameObject attackEffectPrefab;
